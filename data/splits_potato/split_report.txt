@@ -1,0 +1,55 @@
+============================================================
+AgriMind AI — Split Report
+============================================================
+
+Generated: 2026-09-01 17:11:54
+
+Split Sizes:
+  Train: 1508 (70.1%)
+  Validation: 320 (14.9%)
+  Test: 324 (15.1%)
+  Total: 2152
+
+Per-Class Counts:
+
+  Train:
+    Early Blight: 700
+    Healthy: 108
+    Late Blight: 700
+
+  Validation:
+    Early Blight: 148
+    Healthy: 24
+    Late Blight: 148
+
+  Test:
+    Early Blight: 152
+    Healthy: 20
+    Late Blight: 152
+
+Data Leakage Check:
+  Train-Val overlap: 0
+  Train-Test overlap: 0
+  Val-Test overlap: 0
+  RESULT: PASS - No overlap detected
+
+Leaf Grouping:
+  Verified leaves: 536
+  Ungrouped (unverified) images: 0
+  Effective groups: 536
+  Train: 375 verified leaves, 0 ungrouped
+  Validation: 80 verified leaves, 0 ungrouped
+  Test: 81 verified leaves, 0 ungrouped
+
+  Verified leaf overlap:
+    Train-Val: 0
+    Train-Test: 0
+    Val-Test: 0
+    RESULT: PASS
+
+  Overall leakage: PASS
+
+NOTE: Exact duplicates (by MD5) were removed before splitting.
+NOTE: Splits are stratified to preserve class proportions.
+NOTE: Verified leaf grouping was used — all images from the same physical leaf are in a single split. Unverified images are each treated as an individual group.
+============================================================

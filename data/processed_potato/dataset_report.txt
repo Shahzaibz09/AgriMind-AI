@@ -1,0 +1,31 @@
+============================================================
+AgriMind AI — Dataset Report
+============================================================
+
+Dataset: PlantVillage (Potato Subset)
+Generated: 2026-09-01 17:11:51
+
+Expected Classes:
+  - Potato___healthy -> Healthy
+  - Potato___Early_blight -> Early Blight
+  - Potato___Late_blight -> Late Blight
+
+Class Counts:
+  Early Blight: 1000 (46.47%)
+  Late Blight: 1000 (46.47%)
+  Healthy: 152 (7.06%)
+
+Total valid images: 2152
+Corrupted files: 0
+Duplicate groups: 0
+Duplicate extra files: 0
+
+Image Format Summary:
+  .jpg: 2152
+
+Image Mode Summary:
+  RGB: 2152
+
+NOTE: Raw data was NOT modified by this script.
+NOTE: No files were deleted or moved.
+============================================================

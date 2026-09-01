@@ -1,0 +1,21 @@
+{
+  "architecture": "mobilenet_v3_small",
+  "num_classes": 3,
+  "class_mapping": {
+    "0": "Healthy",
+    "1": "Early Blight",
+    "2": "Late Blight"
+  },
+  "input_size": 224,
+  "seed": 42,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "epochs": 10,
+  "optimizer": "Adam",
+  "pretrained": true,
+  "freeze_backbone": true,
+  "best_val_accuracy": 0.9784615384615385,
+  "best_epoch": 10,
+  "elapsed_seconds": 844.1715703010559
+}

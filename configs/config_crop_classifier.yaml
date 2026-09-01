@@ -1,0 +1,68 @@
+# AgriMind AI — Crop Classifier Configuration (Tomato / Potato / Apple)
+#
+# NOT a disease model: this lightweight 3-class classifier predicts which
+# crop a leaf belongs to.  It powers the app's crop verification step
+# (app/crop_verification.py) that runs BEFORE disease diagnosis.
+#
+# Manifests are built by src/build_crop_classifier_dataset.py from the
+# existing per-crop disease splits — do NOT run src.prepare_dataset with
+# this config (it has no raw-dir pipeline of its own).
+
+project:
+  name: "AgriMind AI"
+  description: "3-class crop classifier for pre-diagnosis crop verification"
+
+# Label classes are crop identities (not diseases).  Order defines the
+# model's output index order and is stored in the checkpoint metadata.
+classes:
+  - Tomato
+  - Potato
+  - Apple
+
+num_classes: 3
+
+# Image Settings
+image:
+  height: 224
+  width: 224
+  channels: 3
+
+# Reproducibility
+seed: 42
+
+# Training Settings — deliberately small but with backbone fine-tuning:
+# a head-only model cannot separate Tomato from Potato leaves (both
+# Solanaceae), so epochs 1-2 warm up the classifier head with a frozen
+# backbone and epochs 3-6 fine-tune the full network.  Still CPU-friendly
+# (~20 min one-time); inference remains a single forward pass.
+training:
+  batch_size: 32
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  epochs: 6
+  optimizer: "Adam"
+  loss_function: "CrossEntropyLoss"
+  early_stopping_patience: 5
+  class_weighted_loss: false
+  pretrained: true
+  freeze_backbone: true
+  unfreeze_epoch: 2
+  device: "auto"  # auto, cpu, cuda
+  num_workers: 0
+  history_path: "reports/training_crop_classifier/training_history.json"
+  loss_curve_path: "reports/training_crop_classifier/loss_curve.png"
+  accuracy_curve_path: "reports/training_crop_classifier/accuracy_curve.png"
+
+# Data Paths (manifests from src/build_crop_classifier_dataset.py)
+data:
+  raw: "data/raw"  # unused by this config; kept for schema parity
+  processed: "data/processed_crop_classifier"
+  splits: "data/splits_crop_classifier"
+
+# Model Settings — separate checkpoint; disease checkpoints untouched.
+model:
+  architecture: "mobilenet_v3_small"
+  output_dir: "models"
+  best_model_path: "models/crop_classifier.pth"
+  metadata_path: "models/crop_classifier_metadata.json"
+  model_info_path: "models/crop_classifier_model_info.txt"

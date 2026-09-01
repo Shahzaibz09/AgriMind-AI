@@ -1,0 +1,51 @@
+# AgriMind AI — Potato Crop Configuration
+#
+# Each crop has its own YAML file in configs/crops/.
+# The web application auto-discovers all crop configs at startup.
+
+crop_name: "Potato"
+description: "Potato leaf disease detection"
+model_path: "models/potato_best_model.pth"
+checkpoint_key: "model_state_dict"
+num_classes: 3
+class_names:
+  - "Healthy"
+  - "Early Blight"
+  - "Late Blight"
+image_size: 224
+gradcam_alpha: 0.4
+
+# Display metadata for the web UI
+display:
+  model_architecture: "MobileNetV3-Small"
+  test_accuracy: 97.53
+  test_samples: 324
+  dataset: "PlantVillage"
+
+# Human-readable descriptions shown in the UI
+class_descriptions:
+  Healthy: "No disease detected. Leaf appears healthy."
+  Early Blight: "Early blight (Alternaria solani) detected."
+  Late Blight: "Late blight (Phytophthora infestans) detected."
+
+# Robustness guard thresholds (app/guard.py).  Calibrated against the
+# 324-image potato test distribution; reject thresholds sit at or below
+# half the real-data minimum, so legitimate leaf images are never rejected.
+#
+# ==========================  ========  ========  ========
+# metric                      real min  real p1   threshold
+# ==========================  ========  ========  ========
+# Laplacian variance          563.9     746.2     280 (reject)
+# Green fraction (ExG>0.10)   0.0887    0.1448    0.04 (reject)
+# Adjacent-pixel correlation  0.5213    0.6031    0.25 (reject)
+# Saturation                  0.0886    0.1023    0.04 (reject)
+# ==========================  ========  ========  ========
+guard:
+  min_resolution: 64
+  saturation_min: 0.04
+  flatness_lapvar_min: 280
+  green_fraction_min: 0.04
+  correlation_min: 0.25
+  blur_lapvar_warn: 750
+  confidence_warn: 0.75
+  margin_warn: 0.25

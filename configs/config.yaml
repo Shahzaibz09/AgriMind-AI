@@ -1,0 +1,57 @@
+﻿# AgriMind AI — Project Configuration
+
+project:
+  name: "AgriMind AI"
+  description: "Smart Agriculture AI prototype for tomato leaf disease classification"
+
+# Crop & Disease Classes
+crop: "tomato"
+
+classes:
+  - Healthy
+  - Early Blight
+  - Late Blight
+
+num_classes: 3
+
+# Image Settings
+image:
+  height: 224
+  width: 224
+  channels: 3
+
+# Reproducibility
+seed: 42
+
+# Training Settings
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  epochs: 10
+  optimizer: "Adam"
+  loss_function: "CrossEntropyLoss"
+  early_stopping_patience: 5
+  class_weighted_loss: false  # true = inverse-frequency weighted CrossEntropyLoss
+  pretrained: true
+  freeze_backbone: true
+  unfreeze_epoch: null  # set to epoch number to unfreeze (e.g., 5)
+  device: "auto"  # auto, cpu, cuda
+  num_workers: 0
+  history_path: "reports/training/training_history.json"
+  loss_curve_path: "reports/training/loss_curve.png"
+  accuracy_curve_path: "reports/training/accuracy_curve.png"
+
+# Data Paths
+data:
+  raw: "data/raw"
+  processed: "data/processed"
+  splits: "data/splits"
+
+# Model Settings
+model:
+  architecture: "mobilenet_v3_small"
+  output_dir: "models"
+  best_model_path: "models/best_model.pth"
+  metadata_path: "models/training_metadata.json"
+  model_info_path: "models/model_info.txt"

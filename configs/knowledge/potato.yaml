@@ -1,0 +1,166 @@
+# AgriMind AI — Potato Farmer Assistant Knowledge Base
+#
+# Curated, trilingual (English / Urdu / Roman Urdu) advisory content for
+# the three potato classes.  Management guidance is limited to cultural
+# and preventive practices — no pesticide dosages or chemical
+# prescriptions (enforced by tests/test_potato_pipeline.py).
+
+crop_name: "Potato"
+languages: ["en", "ur", "roman_ur"]
+
+diseases:
+  "Healthy":
+    en:
+      title: "Healthy Leaf"
+      explanation: "Your potato leaf looks healthy. No signs of disease were found in this image. Keep following good farming practices to keep your plants strong."
+      symptoms:
+        - "Green, even leaf color"
+        - "No spots, patches, or yellowing"
+        - "Leaf shape and size look normal"
+      management:
+        - "Water at the base of the plant in the morning"
+        - "Keep enough space between plants for air flow"
+        - "Remove weeds around the plants regularly"
+        - "Ridge fresh soil around the stems (hilling) so tubers stay covered"
+        - "Check leaves weekly for early changes"
+      expert_advice: "If you see new spots or yellowing on other leaves, analyze another image or ask your local agriculture office."
+    ur:
+      title: "صحت مند پتہ"
+      explanation: "آپ کے آلو کا پتہ صحت مند لگ رہا ہے۔ اس تصویر میں کسی بیماری کی علامت نہیں ملی۔ پودوں کو مضبوط رکھنے کے لیے اچھی کھیتی باڑی جاری رکھیں۔"
+      symptoms:
+        - "پتے کا رنگ ہرا اور یکساں ہے"
+        - "کوئی دھبے، پیلاہٹ یا نشان نہیں"
+        - "پتے کی شکل اور سائز عام ہے"
+      management:
+        - "صبح کے وقت پودے کی جڑوں کے پاس پانی دیں"
+        - "ہوا کی گردش کے لیے پودوں کے درمیان مناسب فاصلہ رکھیں"
+        - "پودوں کے ارد گرد جڑی بوٹیاں باقاعدہ نکالیں"
+        - "تنوں کے گرد مٹی چڑھائیں تاکہ زمین کے اندر آلو ڈھکے رہیں"
+        - "ہر ہفتے پتوں کا معائنہ کریں"
+      expert_advice: "اگر دوسرے پتوں پر دھبے یا پیلاہٹ نظر آئیں تو دوبارہ تصویر کا تجزیہ کریں یا مقامی زرعی دفتر سے رابطہ کریں۔"
+    roman_ur:
+      title: "Sehat Mand Patta (Healthy Leaf)"
+      explanation: "Aap ke aloo ka patta sehat mand lag raha hai. Is tasveer mein kisi bimari ki alamat nahi mili. Podon ko mazboot rakhne ke liye achi kheti baari jari rakhein."
+      symptoms:
+        - "Patte ka rang hara aur yaksaan hai"
+        - "Koi dhabay, peelapan ya nishan nahi"
+        - "Patte ki shakal aur size aam hai"
+      management:
+        - "Subah ke waqt poday ki jaroon ke paas pani dein"
+        - "Hawa ki gardish ke liye podon ke darmiyan theek faasla rakhein"
+        - "Podon ke ird gird jari bootiyan baqaida nikalein"
+        - "Tanon ke gird mitti charhayein taake zameen ke andar aloo dhakay rahay"
+        - "Har hafte patton ka muaaina karein"
+      expert_advice: "Agar doosre patton par dhabay ya peelapan nazar aaye to dobara tasveer ka tajzia karein ya maqami zaraei daftar se rabta karein."
+
+  "Early Blight":
+    en:
+      title: "Early Blight"
+      explanation: "Early blight is a common fungal disease of potato caused by the fungus Alternaria solani. It mostly appears on older leaves first and can spread quickly in warm, humid weather."
+      symptoms:
+        - "Dark brown spots with target-like rings on older leaves"
+        - "Yellowing around the spots"
+        - "Spotted leaves may turn brown and drop early"
+      management:
+        - "Remove and destroy infected leaves — do not compost them"
+        - "Water at the base of the plant, avoid wetting the leaves"
+        - "Keep space between plants so leaves dry faster"
+        - "Rotate potatoes with unrelated crops in the next season"
+        - "Ridge fresh soil around the stems (hilling) so tubers stay covered"
+        - "Handle tubers gently at harvest and store only dry, undamaged tubers"
+      expert_advice: "If the disease keeps spreading, contact your local agricultural extension office for approved treatment options. Never use spotted tubers as seed. Always follow product label instructions."
+    ur:
+      title: "ابتدائی سوکھا (ارلی بلائٹ)"
+      explanation: "یہ آلو کی ایک عام فنگس بیماری ہے جو الٹرنیریا سولانی نامی فنگس سے ہوتی ہے۔ یہ عام طور پر پرانے پتوں پر پہلے ظاہر ہوتی ہے اور گرم، نم موسم میں تیزی سے پھیلتی ہے۔"
+      symptoms:
+        - "پرانے پتوں پر گہرے بھورے دھبے جن پر نشانے جیسے حلقے ہوتے ہیں"
+        - "دھبوں کے ارد گرد پیلاہٹ"
+        - "متاثرہ پتے بھورے ہو کر جلد گر سکتے ہیں"
+      management:
+        - "متاثرہ پتے توڑ کر تباہ کر دیں، کھاد کے ڈھیر میں نہ ڈالیں"
+        - "پتوں پر پانی نہ دیں، صرف جڑوں کے پاس پانی دیں"
+        - "پودوں کے درمیان فاصلہ رکھیں تاکہ پتے جلد خشک ہو جائیں"
+        - "اگلے سیزن میں آلو کی جگہ کوئی اور فصل بوئیں"
+        - "تنوں کے گرد مٹی چڑھائیں تاکہ زمین کے اندر آلو ڈھکے رہیں"
+        - "کٹائی کے وقت آلو کو زخم سے بچائیں اور صرف خشک اور بغیر زخم آلو ذخیرہ کریں"
+      expert_advice: "اگر بیماری پھیلتی رہے تو مقامی زرعی ایکسٹینشن دفتر سے رابطہ کریں۔ جن آلو پر دھبے ہوں انہیں اگلے سیزن کے لیے بیج کے طور پر استعمال نہ کریں۔"
+    roman_ur:
+      title: "Ibtidai Sookha (Early Blight)"
+      explanation: "Yeh aloo ki aik aam fungus bimari hai jo Alternaria solani se hoti hai. Yeh aam tor par puranay patton par pehle zahir hoti hai aur garam, nam mausam mein tezi se phailti hai."
+      symptoms:
+        - "Puranay patton par gehray bhooray dhabay jin par nishanay jaisay halqay hotay hain"
+        - "Dhabon ke ird gird peelapan"
+        - "Mutasirah patay bhooray ho kar jald gir saktay hain"
+      management:
+        - "Mutasirah patay tor kar tabah kar dein, khaad ke dher mein na dalein"
+        - "Patton par pani na dein, sirf jaroon ke paas pani dein"
+        - "Podon ke darmiyan faasla rakhein taake patay jald khushk ho jayein"
+        - "Aglay season mein aloo ki jagah koi doosri fasal boein"
+        - "Tanon ke gird mitti charhayein taake zameen ke andar aloo dhakay rahay"
+        - "Katai ke waqt aloo ko zakhm se bachayein aur sirf khushk aur be-zakhm aloo store karein"
+      expert_advice: "Agar bimari phailti rahe to maqami zaraei extension daftar se rabta karein. Jin aaloo par dhabay hon unhein aglay season ke liye beej ke tor par istemal na karein."
+
+  "Late Blight":
+    en:
+      title: "Late Blight"
+      explanation: "Late blight is a serious disease caused by the water mold Phytophthora infestans — the pathogen behind the historic potato famine. It spreads fast in cool, wet weather and can destroy a field within days, so early action is important."
+      symptoms:
+        - "Dark, oily, or greasy-looking patches on leaves"
+        - "White fuzzy growth under leaves in humid weather"
+        - "Leaves and stems turning brown and drying quickly"
+      management:
+        - "Remove and destroy or bury infected plants right away"
+        - "Do not harvest tubers from diseased plants"
+        - "Avoid overhead watering; water at the base only"
+        - "Improve air flow between plants"
+        - "Check the whole field every two to three days in wet weather"
+        - "Never store wet or damaged tubers — one rotting tuber can spoil the whole store"
+      expert_advice: "Late blight spreads very fast. Contact your local agricultural extension office immediately for approved treatment options. Tubers from infected plants can rot in storage and should not be kept as seed. Always follow product label instructions."
+    ur:
+      title: "دیر سے آنے والا سوکھا (لیٹ بلائٹ)"
+      explanation: "یہ ایک سنگین بیماری ہے جو فائٹوفتھورا انفیسٹنس نامی جاندار سے ہوتی ہے۔ یہ ٹھنڈے اور نم موسم میں بہت تیزی سے پھیلتی ہے اور چند دنوں میں پورا کھیت تباہ کر سکتی ہے، اس لیے فوری اقدام ضروری ہے۔"
+      symptoms:
+        - "پتوں پر گہرے، تیلے جیسے چکچکے دھبے"
+        - "نم موسم میں پتوں کے نیچے سفید روئی جیسی بڑھوتری"
+        - "پتے اور تنے بھورے ہو کر جلد سوکھ جاتے ہیں"
+      management:
+        - "متاثرہ پودے فوراً نکال کر دفن یا تباہ کر دیں"
+        - "بیمار پودوں سے آلو کی کٹائی نہ کریں"
+        - "اوپر سے پانی دینے سے گریز کریں، صرف جڑوں کے پاس پانی دیں"
+        - "پودوں کے درمیان ہوا کا بہتر راستہ بنائیں"
+        - "نم موسم میں ہر دو تین دن بعد پورے کھیت کا معائنہ کریں"
+        - "گیلے یا زخمی آلو ذخیرے میں نہ رکھیں"
+      expert_advice: "یہ بیماری بہت تیزی سے پھیلتی ہے۔ فوراً اپنے مقامی زرعی ایکسٹینشن دفتر سے رابطہ کریں۔ متاثرہ کھیت کے آلو ذخیرے میں سڑ سکتے ہیں، انہیں بیج کے طور پر بھی نہ رکھیں۔"
+    roman_ur:
+      title: "Deir Se Aanay Wala Sookha (Late Blight)"
+      explanation: "Yeh aik sangin bimari hai jo Phytophthora infestans naam ka jandar se hoti hai. Yeh thanday aur nam mausam mein bohat tezi se phailti hai aur chand dinon mein pora khet tabah kar sakti hai, is liye foran iqdam zaroori hai."
+      symptoms:
+        - "Patton par gehray, teelay jaisay chamakdar dhabay"
+        - "Nam mausam mein patton ke neechay safaid royi jaisi barhwari"
+        - "Patay aur tanay bhooray ho kar jald sookh jatay hain"
+      management:
+        - "Mutasirah poday foran nikaal kar dafan ya tabah kar dein"
+        - "Bimar podon se aloo ki katai na karein"
+        - "Oopar se pani dene se guraiz karein, sirf jaroon ke paas pani dein"
+        - "Podon ke darmiyan hawa ka behtareen rasta banayein"
+        - "Nam mausam mein har do teen din baad poray khet ka muaaina karein"
+        - "Geelay ya zakhmi aloo zakheray mein na rakhein"
+      expert_advice: "Yeh bimari bohat tezi se phailti hai. Foran apne maqami zaraei extension daftar se rabta karein. Mutasirah khet ke aloo zakheray mein sar saktay hain, inhein beej ke tor par bhi na rakhein."
+
+# Safe fallback messages (rendered when no prediction exists, the disease
+# is not in the knowledge base, or confidence is low).
+fallbacks:
+  missing_prediction:
+    en: "Please analyze a leaf image first. The assistant can give disease-specific guidance only after a prediction is available."
+    ur: "براہ کرم پہلے پتے کی تصویر کا تجزیہ کریں۔ مددگار پیش گوئی کے بعد ہی بیماری کی مخصوص ہدایات دے سکتا ہے۔"
+    roman_ur: "Barah-e-karam pehle patti ki tasveer ka tajzia karein. Madadgaar peshgoi ke baad hi bimari ki makhsoos hadiyaat de sakta hai."
+  unknown_disease:
+    en: "I do not have specific guidance for this condition. Please analyze a clear leaf image, and for any serious problem contact your local agricultural extension office for expert confirmation."
+    ur: "اس حالت کے بارے میں میرے پاس مخصوص ہدایات موجود نہیں ہیں۔ براہ کرم واضح پتے کی تصویر کا تجزیہ کریں، اور کسی بھی سنگین مسئلے کے لیے ماہر کی تصدیق کے لیے اپنے مقامی زرعی ایکسٹینشن دفتر سے رابطہ کریں۔"
+    roman_ur: "Is haalat ke baare mein mere paas makhsoos hadiyaat maujood nahi hain. Barah-e-karam wazeh patti ki tasveer ka tajzia karein, aur kisi bhi sangin maslay ke liye maahir ki tasdeeq ke liye apne maqami zaraei extension daftar se rabta karein."
+  knowledge_unavailable:
+    en: "The knowledge base is currently unavailable. Please contact your local agricultural extension office for guidance."
+  low_confidence_note:
+    en: "Note: The model's confidence in this prediction is low. Please treat this guidance with care and confirm with an agricultural expert."
+    ur: "نوٹ: اس پیش گوئی میں ماڈل کا اعتماد کم ہے۔ براہ کرم اس ہدایت کو احتیاط سے لیں اور کسی زرعی ماہر سے تصدیق کریں۔"
+    roman_ur: "Note: Is peshgoi mein model ka aitmaad kam hai. Barah-e-karam is hadiyat ko ahtiyat se lein aur kisi zaraei maahir se tasdeeq karein."

@@ -1,0 +1,429 @@
+image_path,clean_class
+data\raw\apple\Apple___Apple_scab\536ce9e9-6c98-42c6-9447-f38073b3e9da___FREC_Scab 3222.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\8c71b810-5fe3-415e-863b-6bb0b1fb1455___FREC_Scab 3221.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\baa200af-fc0e-4f13-abec-389605a604a7___FREC_Scab 3220.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\d42691a9-d8a5-43f9-b9e6-7a2cd5bc8371___FREC_Scab 3224.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\e181fe6a-6865-4ae7-8b3e-0ce6f70ac63b___FREC_Scab 3223.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\e3509da1-332c-4e43-977a-c57978ff6a38___FREC_Scab 3219.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\13b10b04-7da6-4d34-8b43-258239a25ffd___FREC_Scab 2990.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\2ae81857-0615-4a6a-8d13-1ace0c62284d___FREC_Scab 2992.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\2bfd8ee0-af6b-42fd-ae61-fc5e92ec1b67___FREC_Scab 2988.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\7bf25c0a-6594-4777-9a67-49a6487bb203___FREC_Scab 2993.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\8eaf0422-c84e-4521-8628-85cf2fc91e7c___FREC_Scab 2989.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\925b4276-9d62-4a3d-9dfd-1613ed40685a___FREC_Scab 2994.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\be23de1a-2db8-4d7f-8b5f-cee56829d49c___FREC_Scab 2991.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\2dd8b8f8-46b0-4bc6-b817-ea7163f4b28b___FREC_Scab 3473.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\60226bd7-db11-4d7e-ba29-a5136f6bebe0___FREC_Scab 3470.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\80870a3d-e028-47c6-9548-cef00d68be2c___FREC_Scab 3469.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\9b7399aa-1c3c-4137-ae4e-196cd23fe573___FREC_Scab 3468.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\a15c8e33-6b90-489e-800d-99b3056235c2___FREC_Scab 3466.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\add9ce00-e304-4632-82f2-ddc86a6be5f6___FREC_Scab 3472.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\cd7bc55c-1c47-4af7-9875-f29147d54115___FREC_Scab 3471.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\ed33dbe0-edc4-4ad8-85c2-0495f384e3fe___FREC_Scab 3467.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\1a21aabb-6f74-4644-8d9e-a517568b7e9c___FREC_Scab 3095.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\30111fee-0c22-4ca4-aeb4-ac14a9a5d651___FREC_Scab 3097.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\461eeeb9-5bf1-4c0a-a7dd-6967917b4537___FREC_Scab 3098.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\5eb564a6-cd74-4c90-95d9-611a6301369d___FREC_Scab 3099.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\6105e3bd-339c-47bd-9764-4ba9b7059a6b___FREC_Scab 3096.JPG,Apple Scab
+data\raw\apple\Apple___healthy\7c388477-2953-4b3d-8f22-7f9eed5fff5c___RS_HL 7527.JPG,Healthy
+data\raw\apple\Apple___healthy\8c656b1d-5f20-4904-a20b-d0f7ef64e773___RS_HL 7526.JPG,Healthy
+data\raw\apple\Apple___healthy\a30edbd9-7605-47ca-9841-dce943c3e12a___RS_HL 7523.JPG,Healthy
+data\raw\apple\Apple___healthy\a4339fb7-ea48-4a93-ad00-aa1a55ea2b4e___RS_HL 7524.JPG,Healthy
+data\raw\apple\Apple___healthy\d1660af9-58e5-458f-b125-4940f06711c0___RS_HL 7522.JPG,Healthy
+data\raw\apple\Apple___healthy\da3ef282-bae6-465c-9ffb-a393c4c38f1d___RS_HL 7528.JPG,Healthy
+data\raw\apple\Apple___healthy\f864bef8-0fb1-43e1-866f-a1e78336be9f___RS_HL 7521.JPG,Healthy
+data\raw\apple\Apple___healthy\fa3dec4b-5fed-4ba4-808f-25b6b84c7c87___RS_HL 7525.JPG,Healthy
+data\raw\apple\Apple___healthy\00907d8b-6ae6-4306-bfd7-d54471981a86___RS_HL 5709.JPG,Healthy
+data\raw\apple\Apple___healthy\122d2ed7-efb5-4a82-a6f0-74e9524e83ff___RS_HL 5702.JPG,Healthy
+data\raw\apple\Apple___healthy\2922187c-ac88-45e4-96ae-2aa396d50bda___RS_HL 5700.JPG,Healthy
+data\raw\apple\Apple___healthy\2dc5f050-21dd-4b81-a1cb-ef2a9f72f134___RS_HL 5694.JPG,Healthy
+data\raw\apple\Apple___healthy\3643fe1d-9523-47cf-9952-7e2ecb027338___RS_HL 5704.JPG,Healthy
+data\raw\apple\Apple___healthy\3e3eaffe-3dda-4a64-8aa7-ca6cf40ff284___RS_HL 5698.JPG,Healthy
+data\raw\apple\Apple___healthy\752c8f77-8b65-46df-886f-e95346e7856f___RS_HL 5705.JPG,Healthy
+data\raw\apple\Apple___healthy\88076c11-c60e-4aea-afca-a1f1187eff0a___RS_HL 5706.JPG,Healthy
+data\raw\apple\Apple___healthy\94e40c05-1631-42bc-99b8-ec4afafd8d7b___RS_HL 5710.JPG,Healthy
+data\raw\apple\Apple___healthy\9871fd63-1ee8-436a-a1b3-c6104350400b___RS_HL 5693.JPG,Healthy
+data\raw\apple\Apple___healthy\a117c853-363a-443a-b489-323fb4239f07___RS_HL 5697.JPG,Healthy
+data\raw\apple\Apple___healthy\ac9eef55-7ba7-4663-913a-6c68fc5b3376___RS_HL 5696.JPG,Healthy
+data\raw\apple\Apple___healthy\c89af5ca-be92-4d72-af08-56598771c4c3___RS_HL 5695.JPG,Healthy
+data\raw\apple\Apple___healthy\c96313e1-59f4-4c05-ba19-a03a613b7d6c___RS_HL 5707.JPG,Healthy
+data\raw\apple\Apple___healthy\d2efd9dd-384c-4ad9-8b41-9780b0ed0c72___RS_HL 5703.JPG,Healthy
+data\raw\apple\Apple___healthy\d80c1667-5e83-4405-9759-a9521eff44ad___RS_HL 5699.JPG,Healthy
+data\raw\apple\Apple___healthy\dbe783c1-f25b-4c7b-9151-4f4abab0ec31___RS_HL 5701.JPG,Healthy
+data\raw\apple\Apple___healthy\dbea92a9-9473-4cb1-b181-341789de0681___RS_HL 5708.JPG,Healthy
+data\raw\apple\Apple___healthy\1fdc99ae-fbc7-480f-9cde-e80b54744c0d___RS_HL 7972.JPG,Healthy
+data\raw\apple\Apple___healthy\38394f24-6b80-4231-b2c4-850325c0718d___RS_HL 7968.JPG,Healthy
+data\raw\apple\Apple___healthy\60be19f7-984f-4e9d-ad1d-4d21ea4c0eef___RS_HL 7966.JPG,Healthy
+data\raw\apple\Apple___healthy\782b4257-75e0-46c4-8cf0-bae4f9895da6___RS_HL 7969.JPG,Healthy
+data\raw\apple\Apple___healthy\7c1289d0-4fe5-478c-a9f4-5d94b461d7bf___RS_HL 7970.JPG,Healthy
+data\raw\apple\Apple___healthy\88aad30d-4d2e-461f-847f-a4d2e9caf035___RS_HL 7967.JPG,Healthy
+data\raw\apple\Apple___healthy\c02b90e9-753e-44a7-a4b8-1e19f1de42f4___RS_HL 7971.JPG,Healthy
+data\raw\apple\Apple___Black_rot\02186b4f-a9e1-4d19-ae3d-6cfb0f4b106a___JR_FrgE.S 2828.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\073553c2-0e42-4c86-b929-b2201f3f7756___JR_FrgE.S 2819.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\16b7455f-bd2e-4ea8-965d-32a072c7beb9___JR_FrgE.S 2824.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\1a4e1884-ab1a-4fe9-afe2-610ae9aa1162___JR_FrgE.S 2826.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\3f7dbd31-47f7-45e4-aa23-42e23362a15d___JR_FrgE.S 2818.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\47b996a0-b66a-4842-9da2-249ea1d62c38___JR_FrgE.S 2814.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\5412de7d-df5d-4a05-be4b-e108811c4a3e___JR_FrgE.S 2820.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\55a48eef-2f73-458f-ab98-7d5110a4ea1b___JR_FrgE.S 2821.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\56d05ee6-f6d5-4c34-838e-4ff2c0592d5d___JR_FrgE.S 2822.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\5e917525-fa2f-473b-bed0-cd45b77f2388___JR_FrgE.S 2816.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\62da4031-70ae-4d8b-8beb-c5dc7b9b12f0___JR_FrgE.S 2832.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\6cc6804c-7b02-42a5-86ae-92add86eb89d___JR_FrgE.S 2825.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\7c08d160-a5ef-4142-b743-8e484c95d8b8___JR_FrgE.S 2815.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\7dd50c96-8c45-4a38-bb17-e382cd5a3578___JR_FrgE.S 2829.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\919b43c2-b954-4a1b-a3c7-602fc1ed00e4___JR_FrgE.S 2823.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\b3bd5eb8-caa5-4a52-8c90-2a47bd450d93___JR_FrgE.S 2830.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\ba4c9f5d-dcc1-408f-a9c5-ca9835533e98___JR_FrgE.S 2833.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\e0cafae6-9957-4f28-8a9f-70fae53d289d___JR_FrgE.S 2813.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\e0ee140b-d60c-4b08-ae6f-e44c5c31fbc8___JR_FrgE.S 2817.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\f15c02d9-9aa6-45b5-84fc-97e22f7fabaa___JR_FrgE.S 2831.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\f54d34aa-d0a9-40c4-8277-6c65ef9a3203___JR_FrgE.S 2827.JPG,Black Rot
+data\raw\apple\Apple___healthy\5bf61b7f-4211-4667-b004-3481279854f2___RS_HL 8095.JPG,Healthy
+data\raw\apple\Apple___healthy\bc0818a9-ad35-4d9d-93c7-20a9901c0781___RS_HL 8098.JPG,Healthy
+data\raw\apple\Apple___healthy\ccf86248-4dee-4fa3-8192-fc145a227ff1___RS_HL 8097.JPG,Healthy
+data\raw\apple\Apple___healthy\de10e57b-5529-437c-8d64-15821f05c574___RS_HL 8094.JPG,Healthy
+data\raw\apple\Apple___healthy\e703a7bf-2f28-4577-9463-e67397c1b673___RS_HL 8100.JPG,Healthy
+data\raw\apple\Apple___healthy\eb8bf5fc-9b26-403e-aa70-a0649a749629___RS_HL 8096.JPG,Healthy
+data\raw\apple\Apple___healthy\f21adca8-b2d2-4a92-84f6-27a46e0935f8___RS_HL 8093.JPG,Healthy
+data\raw\apple\Apple___healthy\f4de145c-b5e6-4503-b04c-abc3820ca7b9___RS_HL 8099.JPG,Healthy
+data\raw\apple\Apple___healthy\16590622-481b-4f63-ac18-7f590f6af49a___RS_HL 7846.JPG,Healthy
+data\raw\apple\Apple___healthy\1f2a82f5-af63-46b8-9c18-d8b9567db343___RS_HL 7849.JPG,Healthy
+data\raw\apple\Apple___healthy\2b21526f-9ab0-444b-829a-fa97cd727733___RS_HL 7844.JPG,Healthy
+data\raw\apple\Apple___healthy\75bc8098-3ccc-4cc5-aff0-ce68b4fa2b82___RS_HL 7845.JPG,Healthy
+data\raw\apple\Apple___healthy\a0c5f687-6807-44a3-8a74-faa5ab3d95bd___RS_HL 7850.JPG,Healthy
+data\raw\apple\Apple___healthy\d321145e-6ab0-4ad2-8109-f34ee4389149___RS_HL 7848.JPG,Healthy
+data\raw\apple\Apple___healthy\f822b7fc-c28b-4fd8-8cde-037ed35c0b08___RS_HL 7847.JPG,Healthy
+data\raw\apple\Apple___Black_rot\12e9d8e2-e5a4-4d4b-933f-7cbc07557736___JR_FrgE.S 8767.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\2d1ac581-1847-419e-8254-55a9caad6b2b___JR_FrgE.S 8766.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\40780a98-eb5f-4de6-bbf8-bc89b7fb0825___JR_FrgE.S 8764.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\6923c419-55d4-4f33-91aa-9ecfb860d72d___JR_FrgE.S 8763.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\888c8b6e-55cb-4492-b489-22f3624f1c39___JR_FrgE.S 8765.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\26ecaea0-d85f-449b-bd3e-16d85cc49eac___JR_FrgE.S 8674.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\36e0efb7-95ff-4707-9d35-c213159af55c___JR_FrgE.S 8673.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\bd6f574a-e0cc-4293-af21-3949e9bf3a8e___JR_FrgE.S 8675.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\d32e96f1-8fde-4f6e-a558-7fdc1ab0807e___JR_FrgE.S 8676.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\ecd4b7b6-2418-4fc0-ab1f-c63c7a61fac6___JR_FrgE.S 8672.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\f3524490-1e4a-4292-9628-fccb4f85ae4e___JR_FrgE.S 8671.JPG,Black Rot
+data\raw\apple\Apple___healthy\3b7ee41f-9af2-4425-a7ea-574ef63979c8___RS_HL 7838.JPG,Healthy
+data\raw\apple\Apple___healthy\688b1671-7399-46a1-b93e-53b11cf210f7___RS_HL 7842.JPG,Healthy
+data\raw\apple\Apple___healthy\7b2e642b-cf2d-4154-b986-b7be01f215f5___RS_HL 7839.JPG,Healthy
+data\raw\apple\Apple___healthy\83849d18-49c5-412b-91c5-3fe882335e88___RS_HL 7840.JPG,Healthy
+data\raw\apple\Apple___healthy\88334c09-9bd6-4653-8109-f1a36383b131___RS_HL 7841.JPG,Healthy
+data\raw\apple\Apple___healthy\f38f938c-4c62-49f0-b271-d0616057e84e___RS_HL 7843.JPG,Healthy
+data\raw\apple\Apple___healthy\fe0140ff-8690-437b-b3b6-dc7d476cb2d7___RS_HL 7837.JPG,Healthy
+data\raw\apple\Apple___healthy\14bb032e-5462-40e4-9056-0e9c3eb47946___RS_HL 7301.JPG,Healthy
+data\raw\apple\Apple___healthy\1ee2a8ac-77e7-4799-bff1-be48e8aa9ae5___RS_HL 7303.JPG,Healthy
+data\raw\apple\Apple___healthy\25aa6094-5f2e-4551-9349-a3fe0edd3b92___RS_HL 7296.JPG,Healthy
+data\raw\apple\Apple___healthy\2b96d8f8-6642-4897-b43e-dde7fb2fcb2a___RS_HL 7295.JPG,Healthy
+data\raw\apple\Apple___healthy\3ee17877-b649-4b43-939a-d9415a21dfd5___RS_HL 7300.JPG,Healthy
+data\raw\apple\Apple___healthy\51e68778-c3ba-423c-8fb8-bc5d1c20645a___RS_HL 7302.JPG,Healthy
+data\raw\apple\Apple___healthy\8ae37f10-377d-44a3-ad94-f271a95673c8___RS_HL 7297.JPG,Healthy
+data\raw\apple\Apple___healthy\8f4c3d68-2d5a-40c5-bca1-911002ff3324___RS_HL 7299.JPG,Healthy
+data\raw\apple\Apple___healthy\95742a3e-9664-496c-8e3d-90bdd9299ae5___RS_HL 7298.JPG,Healthy
+data\raw\apple\Apple___healthy\9781c9ee-9e01-4599-b799-3651b487ccc7___RS_HL 7304.JPG,Healthy
+data\raw\apple\Apple___healthy\ebba11b3-2d4b-4580-9c2f-9e59c1047cdc___RS_HL 7305.JPG,Healthy
+data\raw\apple\Apple___healthy\ec274680-0ee1-49d4-af42-48c6fe0da457___RS_HL 7306.JPG,Healthy
+data\raw\apple\Apple___healthy\af413561-59ca-4d3a-9e7d-34711b946db4___RS_HL 6298.JPG,Healthy
+data\raw\apple\Apple___healthy\0646a42e-9fdd-4914-9879-50843fe1ac6d___RS_HL 6111.JPG,Healthy
+data\raw\apple\Apple___healthy\28682886-ee9f-4698-854f-8f196c01b67a___RS_HL 6101.JPG,Healthy
+data\raw\apple\Apple___healthy\298c8daf-43cc-4f65-b2db-65623425e5f8___RS_HL 6103.JPG,Healthy
+data\raw\apple\Apple___healthy\48ff38b5-5af1-44e5-9d94-ee9a32715aba___RS_HL 6109.JPG,Healthy
+data\raw\apple\Apple___healthy\51cb81e8-dd15-40cd-b4f2-5287379dfe74___RS_HL 6104.JPG,Healthy
+data\raw\apple\Apple___healthy\5f1b959d-c157-455f-baea-258293cad073___RS_HL 6114.JPG,Healthy
+data\raw\apple\Apple___healthy\70bfc07a-818d-44fd-bd98-fc779161abce___RS_HL 6105.JPG,Healthy
+data\raw\apple\Apple___healthy\7d9eb65f-be86-4516-b239-cbf856aa5ed4___RS_HL 6110.JPG,Healthy
+data\raw\apple\Apple___healthy\82d55fb4-a8df-439a-9935-5e5f72b05383___RS_HL 6107.JPG,Healthy
+data\raw\apple\Apple___healthy\831c37a3-44c3-4f1e-9fa2-4c10551809d2___RS_HL 6108.JPG,Healthy
+data\raw\apple\Apple___healthy\a01b22a2-292a-485e-ad7d-ee14de31506c___RS_HL 6102.JPG,Healthy
+data\raw\apple\Apple___healthy\be58ce4e-6678-4315-8786-31bd39e11909___RS_HL 6106.JPG,Healthy
+data\raw\apple\Apple___healthy\f1953fa5-9c15-40a5-b9cd-43341f14dc4d___RS_HL 6115.JPG,Healthy
+data\raw\apple\Apple___healthy\f85e6b2c-e4b2-42fe-99db-9583b58bb51b___RS_HL 6112.JPG,Healthy
+data\raw\apple\Apple___healthy\fca87ead-171e-4dd8-9b2d-669f69158dc5___RS_HL 6113.JPG,Healthy
+data\raw\apple\Apple___Black_rot\0c8432e0-0484-470c-a774-7cce596b9e64___JR_FrgE.S 2841.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\0ca16873-eeac-47e9-9a87-1859950daab7___JR_FrgE.S 2835.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\1c31a116-f51d-4f56-9c69-c26c5fe69f57___JR_FrgE.S 2844.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\2b16890e-753f-4ee8-a78e-d0a7fdf8d91a___JR_FrgE.S 2838.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\3ee8f19d-38a4-4e9d-adc1-c8ab5e95ba60___JR_FrgE.S 2839.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\56473ed3-436d-4ee1-842a-02bc4fba12e7___JR_FrgE.S 2847.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\717c4f62-f05f-4345-a5d7-3b34f3a2efb6___JR_FrgE.S 2836.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\723e8edc-3701-4ba1-bda2-7e0ebd535797___JR_FrgE.S 2837.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\8a1bb676-5d3e-423b-a667-c72d099215ab___JR_FrgE.S 2842.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\938c07c1-f2ad-4cbe-b088-51a085442c3b___JR_FrgE.S 2846.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\a9d80158-0e41-4e0d-8a6b-ec0df3a83ed4___JR_FrgE.S 2845.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\c7cdbb47-6660-44b5-8bb6-3cb796685d15___JR_FrgE.S 2834.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\ca07e05a-e6a2-4651-b4fd-e54f0d1c58b7___JR_FrgE.S 2840.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\fef17b16-ce22-4cb6-ba6a-270f5e08a17d___JR_FrgE.S 2843.JPG,Black Rot
+data\raw\apple\Apple___Apple_scab\01f3deaa-6143-4b6c-9c22-620a46d8be04___FREC_Scab 3112.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\1637ad84-640c-41e7-9be7-6d8e7769b875___FREC_Scab 3110.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\45000608-507a-46f5-be52-3ee24d0fb47d___FREC_Scab 3113.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\650f4395-7428-404a-b65c-8fd36f204dd6___FREC_Scab 3111.JPG,Apple Scab
+data\raw\apple\Apple___healthy\167f64e6-c4c5-423b-8506-9b8210d5fd75___RS_HL 7926.JPG,Healthy
+data\raw\apple\Apple___healthy\1d44a5a9-c15c-40d5-b2d6-bbd9e84c96ea___RS_HL 7923.JPG,Healthy
+data\raw\apple\Apple___healthy\71689ece-34cc-4210-ad88-23ee1d26dfde___RS_HL 7924.JPG,Healthy
+data\raw\apple\Apple___healthy\ab5eb58e-8cd9-4f70-ac56-1a14c101622e___RS_HL 7927.JPG,Healthy
+data\raw\apple\Apple___healthy\b0178b88-d413-498c-a6de-1d7cef560d3a___RS_HL 7925.JPG,Healthy
+data\raw\apple\Apple___healthy\c1b8e085-537b-4a2d-890f-76f0dabb4757___RS_HL 7928.JPG,Healthy
+data\raw\apple\Apple___healthy\c69a5e33-20a9-4f74-922e-c3bc34b1c98e___RS_HL 7921.JPG,Healthy
+data\raw\apple\Apple___healthy\c9b9e157-bef7-41c8-be22-80933635137f___RS_HL 7922.JPG,Healthy
+data\raw\apple\Apple___healthy\449205c0-c994-4e4f-9ea4-ef7fa45f2151___RS_HL 7730.JPG,Healthy
+data\raw\apple\Apple___healthy\4d6cc52c-984d-4652-ac24-ad608cb2085d___RS_HL 7725.JPG,Healthy
+data\raw\apple\Apple___healthy\55eca570-7e6f-4bb9-ae2e-b9834d8fcea7___RS_HL 7726.JPG,Healthy
+data\raw\apple\Apple___healthy\72059689-4c66-4922-8702-1a8d1fef1594___RS_HL 7729.JPG,Healthy
+data\raw\apple\Apple___healthy\8e153b00-732e-420f-8cea-f947b19403ad___RS_HL 7728.JPG,Healthy
+data\raw\apple\Apple___healthy\f2e3e754-4307-440e-8055-1261b7c5c53f___RS_HL 7724.JPG,Healthy
+data\raw\apple\Apple___healthy\f902a6a0-a38b-441d-bd7e-5deb16ed709c___RS_HL 7727.JPG,Healthy
+data\raw\apple\Apple___Apple_scab\0672ab32-9fce-41f3-ae69-e39c48a0a292___FREC_Scab 3347.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\4b7c40cd-b145-4945-b649-3576a1d898dc___FREC_Scab 3343.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\6639559d-7af6-40b0-9677-a8dcfe036435___FREC_Scab 3342.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\8b28fdba-2f54-45dc-a671-a2743f127c45___FREC_Scab 3346.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\a31b7944-c213-4b83-a586-004d0522e355___FREC_Scab 3341.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\bf99a731-b08d-47af-8d65-196bbb0ca2e3___FREC_Scab 3344.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\ea693d65-bcc9-4e76-9d64-cba561b520cc___FREC_Scab 3345.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\4940cd87-695e-4f4d-8a45-5490812447cc___FREC_Scab 3044.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\5990ed9f-ffe8-4622-bd26-e536ea5e1109___FREC_Scab 3042.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\8a212787-77fb-40dc-a028-92d5ff2d6c7c___FREC_Scab 3043.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\96f7f6b4-4dd6-4887-b6b2-89449271274f___FREC_Scab 3047.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\d1773f0b-f049-4bb1-b13f-d33b96078ab3___FREC_Scab 3046.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\dce5b716-54ad-420c-911c-476b838c4be9___FREC_Scab 3045.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\0a5e9323-dbad-432d-ac58-d291718345d9___FREC_Scab 3417.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\4151028c-c8bc-4394-b4a7-aff414864c15___FREC_Scab 3418.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\680c56ea-dc23-4b7b-baeb-f51b156c98f6___FREC_Scab 3416.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\7ceb532d-1a58-4a25-bbff-8dd04a117744___FREC_Scab 3422.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\98259104-a5dd-4751-88f2-27923a2317a3___FREC_Scab 3419.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\be0ae8eb-76ea-4aba-bc29-175812af0f8d___FREC_Scab 3421.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\f6144504-015b-426e-a967-0712cf7621e4___FREC_Scab 3420.JPG,Apple Scab
+data\raw\apple\Apple___healthy\12f455c2-a44e-4069-a8fb-b7bec17d23c1___RS_HL 5895.JPG,Healthy
+data\raw\apple\Apple___healthy\2076cebe-cecb-463f-9a0a-a20c4e53e5f3___RS_HL 5900.JPG,Healthy
+data\raw\apple\Apple___healthy\23a11b8b-6812-481e-9258-e07cc24fdad4___RS_HL 5898.JPG,Healthy
+data\raw\apple\Apple___healthy\4306468f-a177-4c65-bb9a-4167e8d33223___RS_HL 5897.JPG,Healthy
+data\raw\apple\Apple___healthy\857365c4-b60a-465e-8a86-101530c9e83d___RS_HL 5894.JPG,Healthy
+data\raw\apple\Apple___healthy\92effbbb-c662-40c8-8aa9-a5a453d859df___RS_HL 5899.JPG,Healthy
+data\raw\apple\Apple___healthy\9979c166-aa9e-4c63-af93-d9ad2b56bce2___RS_HL 5890.JPG,Healthy
+data\raw\apple\Apple___healthy\b0ba7a6d-95eb-44e2-a2a5-4d9ef9b489d7___RS_HL 5896.JPG,Healthy
+data\raw\apple\Apple___healthy\b3562453-945e-4462-8589-ec879c2a4102___RS_HL 5893.JPG,Healthy
+data\raw\apple\Apple___healthy\bc1fe2f2-05c7-485e-9f97-af1dfb59394a___RS_HL 5901.JPG,Healthy
+data\raw\apple\Apple___healthy\f8ac1022-aeb5-4d6c-a976-a4117a3c1b57___RS_HL 5892.JPG,Healthy
+data\raw\apple\Apple___healthy\f995325a-1135-4bde-89a6-121b0fde8c6c___RS_HL 5891.JPG,Healthy
+data\raw\apple\Apple___Black_rot\0b37761a-de32-47ee-a3a4-e138b97ef542___JR_FrgE.S 2908.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\1cdac481-1275-4228-a2ca-e3deaf268ffc___JR_FrgE.S 2897.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\26b71abd-6648-4d92-a36d-92353bc09966___JR_FrgE.S 2899.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\2a4cbd85-e831-4ec4-8acf-49cea51eeb5f___JR_FrgE.S 2900.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\2f6a52cd-21f5-41d0-870e-f8a67d1f5c56___JR_FrgE.S 2901.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\3bf50ea4-980e-471b-bbd1-fc0c526dbb7a___JR_FrgE.S 2905.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\4fd1092b-5d44-420c-9ea1-b10dc775ecb9___JR_FrgE.S 2903.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\760ef647-ba10-4477-a388-105182a0c0e2___JR_FrgE.S 2895.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\7d0776a1-7aba-4923-93b5-7ec629ca108b___JR_FrgE.S 2902.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\bc6642f0-62ee-419c-90c8-e1e2f19aaecb___JR_FrgE.S 2907.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\c035251c-a97e-4a3a-afb6-5e465bb23ba1___JR_FrgE.S 2906.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\f1844803-f6fb-4cfb-851e-b9095fb40c9e___JR_FrgE.S 2898.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\f9747ff8-17a9-4052-a7f0-d7255d520faa___JR_FrgE.S 2904.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\f9c0a3a9-a08e-4b1d-baab-93fdc7fb2690___JR_FrgE.S 2896.JPG,Black Rot
+data\raw\apple\Apple___Apple_scab\474cf33e-0289-4014-bb8a-8004b87b471b___FREC_Scab 3425.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\8632c6b9-84e1-4779-9294-71548ff838e5___FREC_Scab 3423.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\a88d758c-0c4f-4214-b91d-e5645aa97113___FREC_Scab 3424.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\b18d07ee-d2e2-4cc2-876c-e03e3839f3b6___FREC_Scab 3427.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\c2997bb6-d9ae-4ffc-bc3f-c85510480e13___FREC_Scab 3428.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\cad140d1-bf93-4d65-bae8-c2e332f1346f___FREC_Scab 3426.JPG,Apple Scab
+data\raw\apple\Apple___healthy\203d4b1b-d358-43d5-bd7f-273e68993961___RS_HL 7590.JPG,Healthy
+data\raw\apple\Apple___healthy\56ca7e9b-3db1-4130-ab97-8627eb1a3850___RS_HL 7593.JPG,Healthy
+data\raw\apple\Apple___healthy\72053aee-f044-46c5-ab44-322e198c3f1d___RS_HL 7588.JPG,Healthy
+data\raw\apple\Apple___healthy\7ea27d6d-f7a0-44b3-b6a2-f24455deb48b___RS_HL 7589.JPG,Healthy
+data\raw\apple\Apple___healthy\8742bc93-09b4-4aa7-9a75-ec592ba27c57___RS_HL 7587.JPG,Healthy
+data\raw\apple\Apple___healthy\a5acd48c-a7c2-42de-8a2e-231bb94e134d___RS_HL 7591.JPG,Healthy
+data\raw\apple\Apple___healthy\d93353b1-0471-4372-8c80-cc8dbd069d46___RS_HL 7592.JPG,Healthy
+data\raw\apple\Apple___healthy\ff2e08fe-a803-4159-a9ec-0de65dbaad36___RS_HL 7368.JPG,Healthy
+data\raw\apple\Apple___healthy\03cb0cf0-04cf-4549-a2b8-44ed75b2e56c___RS_HL 7460.JPG,Healthy
+data\raw\apple\Apple___healthy\04125537-801d-4e15-b66c-224b09b4e1a7___RS_HL 7457.JPG,Healthy
+data\raw\apple\Apple___healthy\118160af-d2a3-48ef-8134-cf72f0588cfe___RS_HL 7456.JPG,Healthy
+data\raw\apple\Apple___healthy\1cf4ad6b-8c00-42de-aff0-ee2662c54df1___RS_HL 7462.JPG,Healthy
+data\raw\apple\Apple___healthy\30eff8c3-a67c-42d3-b1c6-b17aa2ab8ea4___RS_HL 7461.JPG,Healthy
+data\raw\apple\Apple___healthy\34881ed6-417b-41a6-9f03-1b9be5f09bb6___RS_HL 7463.JPG,Healthy
+data\raw\apple\Apple___healthy\4cfa1595-b674-419b-93f7-2a836ff4d1bd___RS_HL 7464.JPG,Healthy
+data\raw\apple\Apple___healthy\54ef2bb4-12a7-447e-a980-32c74bd26c1e___RS_HL 7459.JPG,Healthy
+data\raw\apple\Apple___healthy\76c0783e-5e1a-4a25-8371-9e7ef2a8c9d7___RS_HL 7465.JPG,Healthy
+data\raw\apple\Apple___healthy\9290b98f-6984-44d4-b2d5-6eca9177156e___RS_HL 7458.JPG,Healthy
+data\raw\apple\Apple___healthy\e1e675c7-7ec2-44d9-b5c6-9b71151e1447___RS_HL 7466.JPG,Healthy
+data\raw\apple\Apple___Black_rot\23641520-3fbf-42e9-ba5f-c689bc74ce8c___JR_FrgE.S 8620.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\769283e3-f7ec-4e62-b907-4b22d1bda1ea___JR_FrgE.S 8618.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\9675b0f0-4169-495a-b285-67fbeeacf873___JR_FrgE.S 8621.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\98f61299-9578-49f4-8907-1d06e8b15d8a___JR_FrgE.S 8617.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\ad42c269-aca2-4b1b-9e3d-59108ccb79a3___JR_FrgE.S 8622.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\cd4907f8-168a-405b-ae16-599e6e621dca___JR_FrgE.S 8619.JPG,Black Rot
+data\raw\apple\Apple___healthy\0e277198-95a0-4700-a7b0-f1881af2b1c0___RS_HL 7285.JPG,Healthy
+data\raw\apple\Apple___healthy\0f6184c4-18d9-42c5-93d7-e9c4abe85560___RS_HL 7286.JPG,Healthy
+data\raw\apple\Apple___healthy\13c8382b-ca6c-45f5-a6d0-acd67fb28651___RS_HL 7284.JPG,Healthy
+data\raw\apple\Apple___healthy\ba1c31ed-0786-4d38-97dc-99c28fb61e64___RS_HL 7289.JPG,Healthy
+data\raw\apple\Apple___healthy\c9ecb848-37bb-4076-9f57-c1bbe22dbec2___RS_HL 7288.JPG,Healthy
+data\raw\apple\Apple___healthy\e4bca84a-8bf3-477f-8c67-208f7484b0af___RS_HL 7287.JPG,Healthy
+data\raw\apple\Apple___Apple_scab\320dff9e-6d59-4bec-9e7c-930444343e3b___FREC_Scab 3398.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\67c7e9f9-19ca-4fb5-a2b1-8efdeed7b9e2___FREC_Scab 3397.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\7966ec90-1939-40ea-a4f7-99aca4fe8af5___FREC_Scab 3402.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\98f72edf-a354-43de-8734-a697d8cdd3f5___FREC_Scab 3400.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\b4b9c80a-f741-416d-a7e6-6d9566ea731e___FREC_Scab 3399.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\c270319e-61d4-4376-a3e8-b159ff712dd4___FREC_Scab 3401.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\c71e8ee2-8865-4e45-be5a-3303c17337bd___FREC_Scab 3403.JPG,Apple Scab
+data\raw\apple\Apple___Black_rot\116ccffb-6361-4191-8f36-b6cacbe99412___JR_FrgE.S 2763.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\1a9f6dfb-fdf4-43b4-9fb4-b7a809b49b9d___JR_FrgE.S 2765.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\2101e5e6-2932-4ac0-8879-59885fc01256___JR_FrgE.S 2769.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\456a01fc-8db6-4068-96cb-3b1e4e5f77f1___JR_FrgE.S 2768.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\4a79c093-e813-4854-ba58-5b9e2831c7f0___JR_FrgE.S 2764.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\5103776c-7e16-467d-bc37-8995a8c1ea6f___JR_FrgE.S 2770.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\52a259e0-e323-4655-84e5-4588cb1c8ed6___JR_FrgE.S 2758.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\52c66129-6303-4aa4-97e7-8f1c0d24c57a___JR_FrgE.S 2759.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\538ae10f-3137-4050-86f1-7439bc80e364___JR_FrgE.S 2766.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\5db69c6b-f9c9-4a3f-b47a-ca6449023bdd___JR_FrgE.S 2757.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\6e6ba2b7-f2dd-4e99-816a-0e0b8dd6d6bf___JR_FrgE.S 2762.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\70ba699d-a8aa-494a-889f-fd7e54a723be___JR_FrgE.S 2760.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\82c2189f-9a4c-42f8-8e1a-fc67e2c7ebb8___JR_FrgE.S 2761.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\f079c46a-6614-45ac-8ab6-187d126609e5___JR_FrgE.S 2767.JPG,Black Rot
+data\raw\apple\Apple___healthy\14c60de6-5641-4531-b2af-d1b767c28176___RS_HL 8161.JPG,Healthy
+data\raw\apple\Apple___healthy\375f1e44-235c-4ef0-a156-077b71abeed3___RS_HL 8162.JPG,Healthy
+data\raw\apple\Apple___healthy\435d4aff-f96c-415a-91a4-07e21179a3d0___RS_HL 8159.JPG,Healthy
+data\raw\apple\Apple___healthy\957a4a41-e0d8-4dc3-8ed8-43f8c2ac3684___RS_HL 8157.JPG,Healthy
+data\raw\apple\Apple___healthy\e9a9e270-a397-4f0c-a1aa-d064d38379e2___RS_HL 8158.JPG,Healthy
+data\raw\apple\Apple___healthy\f681d565-ab7a-4b83-b476-339589e176a3___RS_HL 8160.JPG,Healthy
+data\raw\apple\Apple___Apple_scab\233b7aec-ccec-47a3-b5bd-27e154d7a8f7___FREC_Scab 2912.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\53035d10-9f2b-4c90-ab75-dfde2a9af82f___FREC_Scab 2915.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\7c83792f-d375-42fb-a5a0-1bc2cb3a8eff___FREC_Scab 2914.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\c3cb1c6c-30f6-4fda-9887-eaeb7e071ca9___FREC_Scab 2913.JPG,Apple Scab
+data\raw\apple\Apple___healthy\1b22388a-cf05-4795-892f-a5b6f35304d5___RS_HL 8141.JPG,Healthy
+data\raw\apple\Apple___healthy\2e6c2a31-e580-49ad-aa9e-31c11f0ff4b3___RS_HL 8137.JPG,Healthy
+data\raw\apple\Apple___healthy\2f2f3662-f870-4b42-b00a-cf098b974d85___RS_HL 8140.JPG,Healthy
+data\raw\apple\Apple___healthy\d05d3b29-86dc-411c-a7c2-ca2f9a784e02___RS_HL 8138.JPG,Healthy
+data\raw\apple\Apple___healthy\dd4efe08-e387-42e2-9c4c-61b35b09bd0d___RS_HL 8136.JPG,Healthy
+data\raw\apple\Apple___healthy\e4c6e085-5cc2-4bbb-a43e-3d839724c31d___RS_HL 8139.JPG,Healthy
+data\raw\apple\Apple___healthy\ee93a9cb-b4e5-4ad6-874b-caff1370f5bd___RS_HL 8142.JPG,Healthy
+data\raw\apple\Apple___Apple_scab\4a7f12ff-a785-4d12-8943-f1644789a21b___FREC_Scab 2916.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\5581f206-7305-4430-be5f-8de62689fb70___FREC_Scab 2918.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\ca37bd3e-47ec-415d-8012-81e4efcc6be5___FREC_Scab 2917.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\fb942296-ba33-40e5-ada0-6700365cf71d___FREC_Scab 2919.JPG,Apple Scab
+data\raw\apple\Apple___healthy\715ddd59-a49f-42e1-8eed-2c3dd29677fd___RS_HL 5832.JPG,Healthy
+data\raw\apple\Apple___Apple_scab\09ba6ad9-aa8d-4493-b1bf-818a4b30c4aa___FREC_Scab 2981.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\0db71c1d-93d7-4481-b0d0-b73f995131a9___FREC_Scab 2976.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\72d9363f-1e23-4154-92bd-5f34a149d444___FREC_Scab 2980.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\c9535536-7e19-474d-9ea2-734d4576e6b7___FREC_Scab 2977.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\da09f1db-51a0-4142-855a-7783a3f92114___FREC_Scab 2978.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\e2746374-a734-4d96-9dc8-503fbd35effa___FREC_Scab 2979.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\01a66316-0e98-4d3b-a56f-d78752cd043f___FREC_Scab 3003.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\675f0b56-9d0b-45b3-8c8e-820efae75274___FREC_Scab 3006.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\6fb62aa7-c3d4-457a-b95d-a8b3102cccd8___FREC_Scab 3005.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\716a13b6-1747-40d8-96d7-5ec1c183b3b5___FREC_Scab 3004.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\82488f15-ffb8-495f-b09f-3810e447681a___FREC_Scab 3007.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\a038a218-4c69-4f5a-9887-80fac9888782___FREC_Scab 3008.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\a6ba4b1c-285a-432d-ae70-df3e37e5e6c1___FREC_Scab 3002.JPG,Apple Scab
+data\raw\apple\Apple___Black_rot\15f31b47-61da-4549-ad60-f13ef13a6512___JR_FrgE.S 8734.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\1e0244a0-b084-4f95-bf64-72efeef4dff2___JR_FrgE.S 8733.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\451b68a6-1b39-40c5-8669-f82af6de1eed___JR_FrgE.S 8737.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\56aa2b6a-6a51-4755-b314-0e9486c53075___JR_FrgE.S 8736.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\59bc1959-6712-4eeb-a58d-ab564851a8f5___JR_FrgE.S 8731.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\848b600b-f609-44c5-bc09-15dd1af0b01c___JR_FrgE.S 8735.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\d734401a-6948-4be6-bfe7-1469d8c910f7___JR_FrgE.S 8732.JPG,Black Rot
+data\raw\apple\Apple___Apple_scab\095c9131-a0cb-47de-898a-f9371f208c01___FREC_Scab 3109.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\563a51b6-2342-4922-b76d-0a6bb69a11f9___FREC_Scab 3107.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\670efd0e-9a5e-44db-bd5a-4ffb5c5e5a7d___FREC_Scab 3108.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\be10c6a0-b99b-4c91-b78f-141a12beb70c___FREC_Scab 3106.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\ed3fa713-5de5-4298-96c1-9cf5bb830078___FREC_Scab 3105.JPG,Apple Scab
+data\raw\apple\Apple___healthy\11c35e07-255e-42cf-b8e9-4533c35ce2c6___RS_HL 7500.JPG,Healthy
+data\raw\apple\Apple___healthy\1ff38f29-401d-4ec7-a99a-c4d3ccf42efc___RS_HL 7498.JPG,Healthy
+data\raw\apple\Apple___healthy\4ddc6bdf-fa72-43ff-99df-36430b318df4___RS_HL 7499.JPG,Healthy
+data\raw\apple\Apple___healthy\4ffc00fe-a8ce-4103-9fab-30165684d8c5___RS_HL 7490.JPG,Healthy
+data\raw\apple\Apple___healthy\6e9b4ada-0f43-4de2-8e5d-463a3cb4da0f___RS_HL 7495.JPG,Healthy
+data\raw\apple\Apple___healthy\801b694b-8412-4e4d-96f7-98b42e3fe214___RS_HL 7494.JPG,Healthy
+data\raw\apple\Apple___healthy\892258ae-052d-4df5-8a8c-27924cd64a85___RS_HL 7497.JPG,Healthy
+data\raw\apple\Apple___healthy\ab9d5340-375c-4935-b997-99ed6e2cfaea___RS_HL 7493.JPG,Healthy
+data\raw\apple\Apple___healthy\b876a8f5-9fee-48fe-817c-f810a55c9ee2___RS_HL 7496.JPG,Healthy
+data\raw\apple\Apple___healthy\cbd14a0d-dbbd-42b7-a28e-4ad56133b425___RS_HL 7491.JPG,Healthy
+data\raw\apple\Apple___healthy\d25674da-5147-4d9d-9041-5b1e97afbdc5___RS_HL 7492.JPG,Healthy
+data\raw\apple\Apple___healthy\21321d47-a7a7-40e7-9514-cfa4f45e2f22___RS_HL 5651.JPG,Healthy
+data\raw\apple\Apple___healthy\359c0812-8e11-45cf-98f7-95840b503b01___RS_HL 5650.JPG,Healthy
+data\raw\apple\Apple___healthy\49d18ffd-bfd4-435d-bffb-fe66ec0e3af6___RS_HL 5647.JPG,Healthy
+data\raw\apple\Apple___healthy\556b0ba0-dfb0-45de-9806-c6c068a8149d___RS_HL 5644.JPG,Healthy
+data\raw\apple\Apple___healthy\5c74b103-09f2-48ae-bbdd-7aa9aaf929cc___RS_HL 5649.JPG,Healthy
+data\raw\apple\Apple___healthy\8471f2db-6c5c-4aba-9ea4-0eea99121f19___RS_HL 5641.JPG,Healthy
+data\raw\apple\Apple___healthy\9ee2b5e6-46cf-400f-a82f-660a2ac05157___RS_HL 5643.JPG,Healthy
+data\raw\apple\Apple___healthy\a48cbfdf-653b-4ab0-8f63-2d6977ec1014___RS_HL 5639.JPG,Healthy
+data\raw\apple\Apple___healthy\ac7b5666-1fe7-4407-a769-7beb71dadd13___RS_HL 5640.JPG,Healthy
+data\raw\apple\Apple___healthy\ada1699c-0a91-44ea-bc2b-476147394421___RS_HL 5646.JPG,Healthy
+data\raw\apple\Apple___healthy\c08ff541-b426-4e5b-8630-98b5246b7d20___RS_HL 5642.JPG,Healthy
+data\raw\apple\Apple___healthy\c3d84f64-28b0-4ea7-a45a-ea564a9b801e___RS_HL 5648.JPG,Healthy
+data\raw\apple\Apple___healthy\d103c4fb-790f-4178-8208-dd191b375600___RS_HL 5645.JPG,Healthy
+data\raw\apple\Apple___healthy\e2af3daf-392f-4661-baf0-f4d4522a07f9___RS_HL 5652.JPG,Healthy
+data\raw\apple\Apple___Black_rot\73a2cc6f-1383-4f70-bda6-02f4c0944ee5___JR_FrgE.S 8692.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\85e5214e-2998-49c7-bdb9-ee8122387704___JR_FrgE.S 8691.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\a23597b9-4e73-4b9c-8ef1-de02d2f2178c___JR_FrgE.S 8690.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\af71d90f-c209-4d1d-8c80-0d7cab342106___JR_FrgE.S 8696.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\c60b9b66-c955-4c35-bf7b-0c9b429b3477___JR_FrgE.S 8693.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\cda99dd8-c509-4825-a35d-d71cb35d3d4c___JR_FrgE.S 8695.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\e54ced2f-6766-41f4-99d5-87ffc2a81cbc___JR_FrgE.S 8694.JPG,Black Rot
+data\raw\apple\Apple___healthy\0055dd26-23a7-4415-ac61-e0b44ebfaf80___RS_HL 5672.JPG,Healthy
+data\raw\apple\Apple___healthy\03d9267c-935a-487b-a27f-fa22f935b299___RS_HL 5671.JPG,Healthy
+data\raw\apple\Apple___healthy\381f3abb-208f-4f52-b7a2-57e35f31c373___RS_HL 5680.JPG,Healthy
+data\raw\apple\Apple___healthy\3df65fa9-1348-4c13-aca6-04bdca4fc070___RS_HL 5668.JPG,Healthy
+data\raw\apple\Apple___healthy\456d5c1e-e025-4d4d-866c-799627dfeb36___RS_HL 5673.JPG,Healthy
+data\raw\apple\Apple___healthy\4ec6e6f9-7f03-44ca-9bd0-1f64b5964308___RS_HL 5669.JPG,Healthy
+data\raw\apple\Apple___healthy\803fcf75-7e13-45a8-bb3d-352140702555___RS_HL 5677.JPG,Healthy
+data\raw\apple\Apple___healthy\9d872301-fed3-4fc4-bf58-9963a5248105___RS_HL 5678.JPG,Healthy
+data\raw\apple\Apple___healthy\abb44bf0-cc56-4086-a5eb-0747cddc367c___RS_HL 5679.JPG,Healthy
+data\raw\apple\Apple___healthy\ae11ce7e-dfd2-42bc-9e1b-0b6a29f9e538___RS_HL 5674.JPG,Healthy
+data\raw\apple\Apple___healthy\d3b63202-6e22-4d60-b4d0-31c54ffd2762___RS_HL 5675.JPG,Healthy
+data\raw\apple\Apple___healthy\d87f5af4-6d78-40a7-838c-c5016a07a111___RS_HL 5676.JPG,Healthy
+data\raw\apple\Apple___healthy\dd2b6b6b-2278-4f52-8009-2d57037ab3f2___RS_HL 5670.JPG,Healthy
+data\raw\apple\Apple___Apple_scab\0d8d5b80-962d-4381-8d3b-9eca3f2f1bb0___FREC_Scab 3449.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\1a41bab0-45e0-4dda-a798-9bf4a998f1b6___FREC_Scab 3450.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\4b4b59d5-3c6d-4ce5-b349-616fecb850ff___FREC_Scab 3447.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\745cfcfa-5b39-46ad-8c40-96086e71f6ee___FREC_Scab 3448.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\7f7b25d4-f895-4f8e-80ad-db72a9b19a2e___FREC_Scab 3451.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\c0b4c09e-80d2-4f4e-a87f-eecd09f656fd___FREC_Scab 3452.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\edb3d65b-533a-490a-a3fd-46e686d3e690___FREC_Scab 3453.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\fed05dda-1d4d-4de4-bbf2-517640b3c999___FREC_Scab 3446.JPG,Apple Scab
+data\raw\apple\Apple___healthy\0692eda2-32c3-4f9a-b249-bb8112356999___RS_HL 6307.JPG,Healthy
+data\raw\apple\Apple___healthy\21c10a73-ebeb-4a16-898b-8b39d9d6eca2___RS_HL 6315.JPG,Healthy
+data\raw\apple\Apple___healthy\2ba31dd4-36d6-4cda-b2e6-c1f53a174d4d___RS_HL 6305.JPG,Healthy
+data\raw\apple\Apple___healthy\5a0aa782-76a8-4de9-89e9-47cb35d222e3___RS_HL 6310.JPG,Healthy
+data\raw\apple\Apple___healthy\76598665-5f8b-4e6e-86c4-36d528385387___RS_HL 6312.JPG,Healthy
+data\raw\apple\Apple___healthy\792beb2d-d492-4a19-aa08-412963b87fc7___RS_HL 6314.JPG,Healthy
+data\raw\apple\Apple___healthy\b202b328-dec4-4b4a-bf6f-50c331f63f89___RS_HL 6311.JPG,Healthy
+data\raw\apple\Apple___healthy\bd91bdc8-d23d-4414-94ab-485c2bc509b1___RS_HL 6313.JPG,Healthy
+data\raw\apple\Apple___healthy\c6e3b06c-3fb3-4516-b663-dea564d907d8___RS_HL 6309.JPG,Healthy
+data\raw\apple\Apple___healthy\ddbfa011-a5f6-449d-a327-b169fb547136___RS_HL 6306.JPG,Healthy
+data\raw\apple\Apple___healthy\e7ef1fc4-cb01-4be4-98ea-207ec6dfb91a___RS_HL 6316.JPG,Healthy
+data\raw\apple\Apple___healthy\f3f9c00a-94b1-43bf-aa9a-a712f0925aaa___RS_HL 6308.JPG,Healthy
+data\raw\apple\Apple___Black_rot\2f6893f9-0439-4409-b752-b910e03b076b___JR_FrgE.S 8814.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\af1789f1-b904-40db-bb01-dc3b08141319___JR_FrgE.S 8809.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\be00705f-de03-4448-b186-fc47e39859a2___JR_FrgE.S 8811.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\dcea72e4-ea95-43b3-8676-3d46188fc8e0___JR_FrgE.S 8813.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\e07b2429-8ae5-42dd-8ce8-1e94887ea6df___JR_FrgE.S 8812.JPG,Black Rot
+data\raw\apple\Apple___Black_rot\fcf3bce8-b685-4483-bac4-a2d0d14d6eeb___JR_FrgE.S 8810.JPG,Black Rot
+data\raw\apple\Apple___healthy\1477ac33-4284-4db3-9a91-dbd61e6183e3___RS_HL 8059.JPG,Healthy
+data\raw\apple\Apple___healthy\2d7f4c07-f4f4-4589-aa82-49e05e5b253b___RS_HL 8056.JPG,Healthy
+data\raw\apple\Apple___healthy\3ecbb982-2844-4662-ad65-9a94fee38fa3___RS_HL 8060.JPG,Healthy
+data\raw\apple\Apple___healthy\5c320c7a-e164-43d0-adab-b966ff9e2c1a___RS_HL 8055.JPG,Healthy
+data\raw\apple\Apple___healthy\8a311714-e680-4c68-8f3a-60f4bfc16ada___RS_HL 8062.JPG,Healthy
+data\raw\apple\Apple___healthy\a09b0571-6876-487c-bf88-bb378dd4f0cc___RS_HL 8057.JPG,Healthy
+data\raw\apple\Apple___healthy\bfe9c599-e0d3-4ce6-8d8a-403df3d265cc___RS_HL 8058.JPG,Healthy
+data\raw\apple\Apple___healthy\c1c192eb-1b3d-4fc5-b2c1-4eba9445536d___RS_HL 8061.JPG,Healthy
+data\raw\apple\Apple___healthy\0c83f4eb-4949-47c8-bf63-312d16e64913___RS_HL 7619.JPG,Healthy
+data\raw\apple\Apple___healthy\35acdaad-cf75-4ea6-ae8b-02f5a6e7caeb___RS_HL 7620.JPG,Healthy
+data\raw\apple\Apple___healthy\72e2d888-0fd6-4bd0-be79-82715f062290___RS_HL 7621.JPG,Healthy
+data\raw\apple\Apple___healthy\8704d8b7-1368-441a-bad0-9f05b1cb6e7b___RS_HL 7623.JPG,Healthy
+data\raw\apple\Apple___healthy\a6af24a5-31a8-4154-bfe6-7b3f7d516f6a___RS_HL 7622.JPG,Healthy
+data\raw\apple\Apple___healthy\a8bcd8e0-29d1-4118-9117-838fc9174aa9___RS_HL 7618.JPG,Healthy
+data\raw\apple\Apple___healthy\b7bc8a7b-c93c-44c2-9b8f-d142e05cee7f___RS_HL 7617.JPG,Healthy
+data\raw\apple\Apple___healthy\01b32971-5125-4982-98e2-22daa9ae864a___RS_HL 7977.JPG,Healthy
+data\raw\apple\Apple___healthy\8656f9ff-3a95-4350-af32-82ed2fbff533___RS_HL 7976.JPG,Healthy
+data\raw\apple\Apple___healthy\96717630-6d48-4660-b472-268f5f1304d9___RS_HL 7978.JPG,Healthy
+data\raw\apple\Apple___healthy\aeae3ac9-437e-4f74-9ff4-48f9058e6c9e___RS_HL 7974.JPG,Healthy
+data\raw\apple\Apple___healthy\c0ffd6a1-e3d2-4034-aa74-597bf3a257e9___RS_HL 7973.JPG,Healthy
+data\raw\apple\Apple___healthy\f109ab3b-0e85-47e6-9c7b-fe1b7a52a530___RS_HL 7975.JPG,Healthy
+data\raw\apple\Apple___healthy\10b8f12c-d16a-4fa0-b70a-5f066f6a1c5c___RS_HL 7312.JPG,Healthy
+data\raw\apple\Apple___healthy\1cd322aa-2fdf-4e50-bb72-f9ebe031f385___RS_HL 7315.JPG,Healthy
+data\raw\apple\Apple___healthy\24adc938-da71-4d2a-9c7e-f2dc3a73c908___RS_HL 7307.JPG,Healthy
+data\raw\apple\Apple___healthy\430fd7d8-9390-411c-b849-e421cf11f7a7___RS_HL 7314.JPG,Healthy
+data\raw\apple\Apple___healthy\55a94d0f-ce98-4681-a4d5-a89dc2031b6a___RS_HL 7311.JPG,Healthy
+data\raw\apple\Apple___healthy\56357993-94b9-4ed2-bc6e-22d4245f958e___RS_HL 7313.JPG,Healthy
+data\raw\apple\Apple___healthy\5adf1cdb-17bc-4871-ad87-ccdf715cfdb7___RS_HL 7309.JPG,Healthy
+data\raw\apple\Apple___Apple_scab\6e8ed8d7-45e0-446a-aad1-d7ccf4a861fe___FREC_Scab 3068.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\7edff180-8238-44d7-bba1-07749e649dae___FREC_Scab 3071.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\9a82c830-7854-4f7f-84c5-f7414cd238b0___FREC_Scab 3069.JPG,Apple Scab
+data\raw\apple\Apple___Apple_scab\d250df8f-72ee-40c2-a620-0e0e0fa36971___FREC_Scab 3070.JPG,Apple Scab

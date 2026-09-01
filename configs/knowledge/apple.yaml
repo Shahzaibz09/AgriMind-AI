@@ -1,0 +1,160 @@
+# AgriMind AI — Apple Farmer Assistant Knowledge Base
+#
+# Curated, trilingual (English / Urdu / Roman Urdu) advisory content for
+# the three apple classes.  Management guidance is limited to cultural
+# and preventive practices — no pesticide dosages or chemical
+# prescriptions (enforced by tests/test_apple_pipeline.py).
+
+crop_name: "Apple"
+languages: ["en", "ur", "roman_ur"]
+
+diseases:
+  "Healthy":
+    en:
+      title: "Healthy Leaf"
+      explanation: "Your apple leaf looks healthy. No signs of disease were found in this image. Keep following good orchard practices to keep your trees strong."
+      symptoms:
+        - "Green, even leaf color"
+        - "No spots, patches, or yellowing"
+        - "Leaf shape and size look normal"
+      management:
+        - "Water at the base of the tree in the morning"
+        - "Prune so sunlight and air can pass through the branches"
+        - "Remove weeds around the tree regularly"
+        - "Keep the tree free of dead or wounded branches"
+        - "Check leaves weekly for early changes"
+      expert_advice: "If you see new spots or yellowing on other leaves, analyze another image or ask your local agriculture office."
+    ur:
+      title: "صحت مند پتہ"
+      explanation: "آپ کے سیب کا پتہ صحت مند لگ رہا ہے۔ اس تصویر میں کسی بیماری کی علامت نہیں ملی۔ درختوں کو مضبوط رکھنے کے لیے اچھی باغبانی جاری رکھیں۔"
+      symptoms:
+        - "پتے کا رنگ ہرا اور یکساں ہے"
+        - "کوئی دھبے، پیلاہٹ یا نشان نہیں"
+        - "پتے کی شکل اور سائز عام ہے"
+      management:
+        - "صبح کے وقت درخت کی جڑوں کے پاس پانی دیں"
+        - "شاخوں کو اس طرح کاٹیں کہ سورج اور ہوا آسانی سے عبور کر سکے"
+        - "درخت کے ارد گرد جڑی بوٹیاں باقاعدہ نکالیں"
+        - "درخت پر سوکھی یا زخمی شاخیں نہ رہنے دیں"
+        - "ہر ہفتے پتوں کا معائنہ کریں"
+      expert_advice: "اگر دوسرے پتوں پر دھبے یا پیلاہٹ نظر آئیں تو دوبارہ تصویر کا تجزیہ کریں یا مقامی زرعی دفتر سے رابطہ کریں۔"
+    roman_ur:
+      title: "Sehat Mand Patta (Healthy Leaf)"
+      explanation: "Aap ke saib ka patta sehat mand lag raha hai. Is tasveer mein kisi bimari ki alamat nahi mili. Darakhton ko mazboot rakhne ke liye achi baagh-baari jari rakhein."
+      symptoms:
+        - "Patte ka rang hara aur yaksaan hai"
+        - "Koi dhabay, peelapan ya nishan nahi"
+        - "Patte ki shakal aur size aam hai"
+      management:
+        - "Subah ke waqt darakht ki jaroon ke paas pani dein"
+        - "Shakhon ko is tarah kaatein ke sooraj aur hawa aasani se guzar sakein"
+        - "Darakht ke ird gird jari bootiyan baqaida nikalein"
+        - "Darakht par sookhi ya zakhmi shakhein na rehne dein"
+        - "Har hafte patton ka muaaina karein"
+      expert_advice: "Agar doosre patton par dhabay ya peelapan nazar aayein to dobara tasveer ka tajzia karein ya maqami zaraei daftar se rabta karein."
+
+  "Apple Scab":
+    en:
+      title: "Apple Scab"
+      explanation: "Apple scab is a common fungal disease of apple trees caused by the fungus Venturia inaequalis. It appears in spring on young leaves and fruit, especially in wet weather, and can seriously reduce fruit quality and yield."
+      symptoms:
+        - "Olive-green to dark velvety spots on young leaves"
+        - "Dark, cracked, or deformed spots on the fruit skin"
+        - "Badly infected leaves may turn yellow and drop early"
+      management:
+        - "Collect and destroy fallen leaves after harvest — the fungus survives winter on them"
+        - "Prune branches so sunlight and air move freely through the tree"
+        - "Avoid watering from above; keep leaves dry"
+        - "Remove infected fruit from the tree and the ground"
+        - "Start checking new leaves early in spring when the weather is wet"
+      expert_advice: "If scab returns every year, contact your local agricultural extension office for approved treatment options. When planting new trees, choose scab-resistant varieties if available in your area."
+    ur:
+      title: "سیب کا کھرہ (ایپل سکیب)"
+      explanation: "یہ سیب کی ایک عام فنگس بیماری ہے جو وینٹوریا ان ایکوالیس نامی فنگس سے ہوتی ہے۔ یہ بہار میں نئے پتوں اور پھلوں پر ظاہر ہوتی ہے، خاص طور پر نم موسم میں، اور پھل کے معیار اور پیداوار کو بھاری نقصان پہنچا سکتی ہے۔"
+      symptoms:
+        - "نئے پتوں پر زیتونی سبز سے گہرے مخملی دھبے"
+        - "پھل کے چھلکے پر گہرے، پھٹے ہوئے یا بڑھے ہوئے دھبے"
+        - "زیادہ متاثرہ پتے پیلے ہو کر جلد گر سکتے ہیں"
+      management:
+        - "کٹائی کے بعد گرا ہوا پتہ جمع کر کے تباہ کر دیں، فنگس سردیوں میں انہی پر رہتی ہے"
+        - "شاخوں کو اس طرح کاٹیں کہ سورج کی روشنی اور ہوا درخت میں آزادی سے گذر سکے"
+        - "اوپر سے پانی دینے سے گریز کریں، پتے خشک رکھیں"
+        - "متاثرہ پھل درخت اور زمین سے ہٹا دیں"
+        - "نم موسم میں بہار کے آغاز ہی سے نئے پتوں کا معائنہ شروع کر دیں"
+      expert_advice: "اگر یہ بیماری ہر سال لوٹتی رہے تو مقامی زرعی ایکسٹینشن دفتر سے رابطہ کریں۔ نئے درخت لگاتے وقت اگر دستیاب ہوں تو کھرے کے خلاف مزاحم اقسام منتخب کریں۔"
+    roman_ur:
+      title: "Saib ka Khurra (Apple Scab)"
+      explanation: "Yeh saib ki aik aam fungus bimari hai jo Venturia inaequalis naam ke fungus se hoti hai. Yeh bahar mein naye patton aur phalon par zahir hoti hai, khaas tor par nam mausam mein, aur phal ke mayaar aur paidawar ko bhaari nuqsaan pohancha sakti hai."
+      symptoms:
+        - "Naye patton par zaitooni sabz se gehray makhmali dhabay"
+        - "Phal ke chhilke par gehray, phatay hue ya barhay hue dhabay"
+        - "Ziyada mutasirah patay peelay ho kar jald gir saktay hain"
+      management:
+        - "Katai ke baad gira hua patta jama kar ke tabah kar dein, fungus sardiyon mein inhi par rehti hai"
+        - "Shakhon ko is tarah kaatein ke sooraj ki roshni aur hawa darakht mein azadi se guzar sakein"
+        - "Oopar se pani dene se guraiz karein, patay khushk rakhein"
+        - "Mutasirah phal darakht aur zameen se hata dein"
+        - "Nam mausam mein bahar ke aaghaz hi se naye patton ka muaaina shuru kar dein"
+      expert_advice: "Agar yeh bimari har saal lautti rahe to maqami zaraei extension daftar se rabta karein. Naye darakht lagatay waqt agar dastyaab hon to khurre ke khilaaf muzahim qismein muntakhib karein."
+
+  "Black Rot":
+    en:
+      title: "Black Rot"
+      explanation: "Black rot is a serious fungal disease of apple caused by the fungus Botryosphaeria obtusa. It affects leaves, fruit, and branches, and usually enters the tree through wounds and dead wood."
+      symptoms:
+        - "Purple-edged spots with brown centers on leaves, shaped like a frog's eye"
+        - "Dark rings of rot on fruit, often starting from a bruise or wound"
+        - "Sunken, dying patches (cankers) on branches"
+      management:
+        - "Prune out dead or cankered branches and dispose of them away from the orchard"
+        - "Remove mummified (dried, rotten) fruit from trees and the ground"
+        - "Avoid wounding branches during pruning and other orchard work"
+        - "Keep the tree strong with balanced nutrition and proper watering"
+        - "Clean up fallen branches and leaves and destroy them"
+      expert_advice: "Black rot enters the tree through wounds and dead wood. If cankers keep spreading on branches, contact your local agricultural extension office. Never leave pruned diseased wood lying in the orchard."
+    ur:
+      title: "کالا سڑ (بلیک روٹ)"
+      explanation: "یہ سیب کی ایک سنگین فنگس بیماری ہے جو بوٹریوسفیریا آبنٹوزا نامی فنگس سے ہوتی ہے۔ یہ پتوں، پھلوں اور شاخوں کو متاثر کرتی ہے اور عام طور پر زخموں اور مردہ لکڑی کے راستے درخت میں داخل ہوتی ہے۔"
+      symptoms:
+        - "پتوں پر جامنی حاشیے اور بھورے مرکز والے دھبے جو مینڈک کی آنکھ جیسے دکھائی دیتے ہیں"
+        - "پھل پر گہرے حلقوں میں سڑن، اکثر کسی چوٹ یا زخم سے شروع ہوتی ہے"
+        - "شاخوں پر دھنسے ہوئے مرتے ہوئے حصے (کینکر)"
+      management:
+        - "سوکھی یا کینکر والی شاخیں کاٹ کر باغ سے دور تباہ کر دیں"
+        - "درختوں اور زمین پر سکے ہوئے سنہری پھل (ممی فروٹ) ہٹا دیں"
+        - "چھانٹی اور دیگر باغبانی کے کاموں کے دوران شاخوں کو زخم سے بچائیں"
+        - "متوازن غذا اور مناسب پانی سے درخت کو مضبوط رکھیں"
+        - "گری ہوئی شاخیں اور پتے صاف کر کے تباہ کر دیں"
+      expert_advice: "یہ بیماری زخموں اور مردہ لکڑی سے درخت میں داخل ہوتی ہے۔ اگر شاخوں پر کینکر پھیلتے رہیں تو مقامی زرعی ایکسٹینشن دفتر سے رابطہ کریں۔ کٹی ہوئی بیمار لکڑی کو باغ میں ہرگز نہ چھوڑیں۔"
+    roman_ur:
+      title: "Kala Sar (Black Rot)"
+      explanation: "Yeh saib ki aik sangin fungus bimari hai jo Botryosphaeria obtusa naam ke fungus se hoti hai. Yeh patton, phalon aur shakhon ko mutasir karti hai aur aam tor par zakhmoon aur murda lakri ke rastay darakht mein dakhil hoti hai."
+      symptoms:
+        - "Patton par jamni hashiyay aur bhooray markaz walay dhabay jo mandak ki aankh jaisay dikhai detay hain"
+        - "Phal par gehray halqon mein saran, aksar kisi chot ya zakhm se shuru hoti hai"
+        - "Shakhon par dhansay hue martay hue hissay (canker)"
+      management:
+        - "Sookhi ya canker wali shakhain kaat kar baagh se door tabah kar dein"
+        - "Darakhton aur zameen par sukay hue sunhari phal (mummy fruit) hata dein"
+        - "Chhantai aur doosri baagh-baari ke kaamon ke dauran shakhon ko zakhm se bachayein"
+        - "Mutawazan ghiza aur munasib pani se darakht ko mazboot rakhein"
+        - "Giri hui shakhain aur patay saaf kar ke tabah kar dein"
+      expert_advice: "Yeh bimari zakhmoon aur murda lakri se darakht mein dakhil hoti hai. Agar shakhon par canker phailtay rahen to maqami zaraei extension daftar se rabta karein. Kati hui bimaar lakri ko baagh mein hargiz na chhorein."
+
+# Safe fallback messages (rendered when no prediction exists, the disease
+# is not in the knowledge base, or confidence is low).
+fallbacks:
+  missing_prediction:
+    en: "Please analyze a leaf image first. The assistant can give disease-specific guidance only after a prediction is available."
+    ur: "براہ کرم پہلے پتے کی تصویر کا تجزیہ کریں۔ مددگار پیش گوئی کے بعد ہی بیماری کی مخصوص ہدایات دے سکتا ہے۔"
+    roman_ur: "Barah-e-karam pehle patti ki tasveer ka tajzia karein. Madadgaar peshgoi ke baad hi bimari ki makhsoos hadiyaat de sakta hai."
+  unknown_disease:
+    en: "I do not have specific guidance for this condition. Please analyze a clear leaf image, and for any serious problem contact your local agricultural extension office for expert confirmation."
+    ur: "اس حالت کے بارے میں میرے پاس مخصوص ہدایات موجود نہیں ہیں۔ براہ کرم واضح پتے کی تصویر کا تجزیہ کریں، اور کسی بھی سنگین مسئلے کے لیے ماہر کی تصدیق کے لیے اپنے مقامی زرعی ایکسٹینشن دفتر سے رابطہ کریں۔"
+    roman_ur: "Is haalat ke baare mein mere paas makhsoos hadiyaat maujood nahi hain. Barah-e-karam wazeh patti ki tasveer ka tajzia karein, aur kisi bhi sangin maslay ke liye maahir ki tasdeeq ke liye apne maqami zaraei extension daftar se rabta karein."
+  knowledge_unavailable:
+    en: "The knowledge base is currently unavailable. Please contact your local agricultural extension office for guidance."
+  low_confidence_note:
+    en: "Note: The model's confidence in this prediction is low. Please treat this guidance with care and confirm with an agricultural expert."
+    ur: "نوٹ: اس پیش گوئی میں ماڈل کا اعتماد کم ہے۔ براہ کرم اس ہدایت کو احتیاط سے لیں اور کسی زرعی ماہر سے تصدیق کریں۔"
+    roman_ur: "Note: Is peshgoi mein model ka aitmaad kam hai. Barah-e-karam is hadiyat ko ahtiyat se lein aur kisi zaraei maahir se tasdeeq karein."

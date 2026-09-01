@@ -1,0 +1,54 @@
+# AgriMind AI — Apple Crop Configuration
+#
+# Each crop has its own YAML file in configs/crops/.
+# The web application auto-discovers all crop configs at startup.
+
+crop_name: "Apple"
+description: "Apple leaf disease detection"
+model_path: "models/apple_best_model.pth"
+checkpoint_key: "model_state_dict"
+num_classes: 3
+class_names:
+  - "Healthy"
+  - "Apple Scab"
+  - "Black Rot"
+image_size: 224
+gradcam_alpha: 0.4
+
+# Display metadata for the web UI
+display:
+  model_architecture: "MobileNetV3-Small"
+  test_accuracy: 96.5
+  test_samples: 428
+  dataset: "PlantVillage"
+
+# Human-readable descriptions shown in the UI
+class_descriptions:
+  Healthy: "No disease detected. Leaf appears healthy."
+  Apple Scab: "Apple scab (Venturia inaequalis) detected."
+  Black Rot: "Black rot (Botryosphaeria obtusa) detected."
+
+# Robustness guard thresholds (app/guard.py).  Calibrated against the
+# 428-image apple test distribution; reject thresholds sit at or below
+# half the real-data minimum, so legitimate leaf images are never
+# rejected.  Apple images are softer and less green than potato/tomato
+# leaves, so the sharpness and green gates are noticeably lower than
+# the potato calibration (configs/crops/potato.yaml).
+#
+# ==========================  ========  ========  ========
+# metric                      real min  real p1   threshold
+# ==========================  ========  ========  ========
+# Laplacian variance          94.99     176.78    45 (reject)
+# Green fraction (ExG>0.10)   0.0068    0.0581    0.003 (reject)
+# Adjacent-pixel correlation  0.5956    0.7014    0.25 (reject)
+# Saturation                  0.0326    0.0475    0.015 (reject)
+# ==========================  ========  ========  ========
+guard:
+  min_resolution: 64
+  saturation_min: 0.015
+  flatness_lapvar_min: 45
+  green_fraction_min: 0.003
+  correlation_min: 0.25
+  blur_lapvar_warn: 180
+  confidence_warn: 0.75
+  margin_warn: 0.25

@@ -1,0 +1,22 @@
+{
+  "architecture": "mobilenet_v3_small",
+  "num_classes": 3,
+  "class_mapping": {
+    "0": "Healthy",
+    "1": "Apple Scab",
+    "2": "Black Rot"
+  },
+  "input_size": 224,
+  "seed": 42,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "epochs": 10,
+  "optimizer": "Adam",
+  "pretrained": true,
+  "freeze_backbone": true,
+  "class_weighted_loss": false,
+  "best_val_accuracy": 0.9955257270693513,
+  "best_epoch": 10,
+  "elapsed_seconds": 762.1591420173645
+}

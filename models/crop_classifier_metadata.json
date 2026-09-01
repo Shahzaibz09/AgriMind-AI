@@ -1,0 +1,22 @@
+{
+  "architecture": "mobilenet_v3_small",
+  "num_classes": 3,
+  "class_mapping": {
+    "0": "Tomato",
+    "1": "Potato",
+    "2": "Apple"
+  },
+  "input_size": 224,
+  "seed": 42,
+  "batch_size": 32,
+  "learning_rate": 0.0005,
+  "weight_decay": 0.0001,
+  "epochs": 6,
+  "optimizer": "Adam",
+  "pretrained": true,
+  "freeze_backbone": true,
+  "class_weighted_loss": false,
+  "best_val_accuracy": 0.9933333333333333,
+  "best_epoch": 4,
+  "elapsed_seconds": 1426.8174133300781
+}

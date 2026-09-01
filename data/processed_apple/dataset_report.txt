@@ -1,0 +1,54 @@
+============================================================
+AgriMind AI — Dataset Report
+============================================================
+
+Dataset: PlantVillage (Apple Subset)
+Generated: 2026-09-01 18:28:52
+
+Expected Classes:
+  - Apple___healthy -> Healthy
+  - Apple___Apple_scab -> Apple Scab
+  - Apple___Black_rot -> Black Rot
+
+Class Counts:
+  Healthy: 1645 (56.8%)
+  Apple Scab: 630 (21.75%)
+  Black Rot: 621 (21.44%)
+
+Total valid images: 2896
+Corrupted files: 0
+Duplicate groups: 7
+Duplicate extra files: 7
+
+Duplicate Files (by MD5):
+  MD5 926f8ebcfc60d44649018c5154c8fcec:
+    - data\raw\apple\Apple___healthy\11beda66-01e9-4bfd-be37-c0f8646d1478___RS_HL 6271.JPG
+    - data\raw\apple\Apple___healthy\13298d36-4425-437d-ae8e-c7d70e200084___RS_HL 6271.JPG
+  MD5 161940bd6e73cf648974cc7213cffb8f:
+    - data\raw\apple\Apple___healthy\14896dc0-688d-456f-b5ec-a037695b0193___RS_HL 6268.JPG
+    - data\raw\apple\Apple___healthy\c21cf428-bfc3-4710-b5d2-69d1c0e94748___RS_HL 6268.JPG
+  MD5 68f05a541bf01c0fcfbc7f9445f8a147:
+    - data\raw\apple\Apple___healthy\1ab5e019-e5f0-4d8e-a252-94cb0aab8b0a___RS_HL 6269.JPG
+    - data\raw\apple\Apple___healthy\3673d121-b5de-481c-b057-d4ee5b4959b1___RS_HL 6269.JPG
+  MD5 8bbefab9461168ef9946618480d2f0ad:
+    - data\raw\apple\Apple___healthy\3d075f90-7002-4c45-abc0-4f35ee49aa79___RS_HL 6272.JPG
+    - data\raw\apple\Apple___healthy\acb21cc2-8d65-4880-a7bb-dcc1eab1564b___RS_HL 6272.JPG
+  MD5 61cabcbf7a2412e44ce0bcee3c384a25:
+    - data\raw\apple\Apple___healthy\5192db55-4aa7-421c-92d4-c2dac79e7379___RS_HL 6273.JPG
+    - data\raw\apple\Apple___healthy\9b75de13-d4b0-4b3f-988c-3e9926eef957___RS_HL 6273.JPG
+  MD5 48f5d94e58351849b9f219c674323d58:
+    - data\raw\apple\Apple___healthy\ced4e27a-5eff-4190-a33a-cdc3d84c811e___RS_HL 6270.JPG
+    - data\raw\apple\Apple___healthy\dc18b924-f172-445d-8fed-61445d437aaa___RS_HL 6270.JPG
+  MD5 fb72d1f9dbd2af9a9ee3fc3421ecf6a4:
+    - data\raw\apple\Apple___healthy\f2cda910-55c7-46d7-b1a2-9a3bb9792148___RS_HL 6274.JPG
+    - data\raw\apple\Apple___healthy\fdbfa6f7-f887-442d-8df1-1f0cf839fc4d___RS_HL 6274.JPG
+
+Image Format Summary:
+  .jpg: 2896
+
+Image Mode Summary:
+  RGB: 2896
+
+NOTE: Raw data was NOT modified by this script.
+NOTE: No files were deleted or moved.
+============================================================

@@ -1,0 +1,18 @@
+AgriMind AI — Crop Classifier Dataset Build Report
+====================================================
+Seed: 42
+
+train Tomato : 800 sampled from data\splits\train.csv
+train Potato : 800 sampled from data\splits_potato\train.csv
+train Apple  : 800 sampled from data\splits_apple\train.csv
+train TOTAL : 2400 rows -> data\splits_crop_classifier\train.csv
+
+val   Tomato : 100 sampled from data\splits\val.csv
+val   Potato : 100 sampled from data\splits_potato\val.csv
+val   Apple  : 100 sampled from data\splits_apple\val.csv
+val   TOTAL : 300 rows -> data\splits_crop_classifier\val.csv
+
+test  Tomato : 100 sampled from data\splits\test.csv
+test  Potato : 100 sampled from data\splits_potato\test.csv
+test  Apple  : 100 sampled from data\splits_apple\test.csv
+test  TOTAL : 300 rows -> data\splits_crop_classifier\test.csv
