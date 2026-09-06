@@ -18,6 +18,7 @@ Launch::
 
 from __future__ import annotations
 
+import io
 import os
 import sys
 import tempfile
@@ -132,6 +133,11 @@ st.markdown(
         font-weight: 700;
         color: #1B5E20;
     }
+    .agri-step-subtitle {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #607D8B;
+    }
     /* Diagnosis card */
     /* Diagnosis result card — key/value rows */
     .agri-result-row {
@@ -182,11 +188,99 @@ st.markdown(
     }
     /* Progress bars stay green */
     .stProgress > div > div > div > div { background-color: #4CAF50; }
+    /* Safety workflow strip (under the hero) */
+    .agri-workflow {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.3rem 0.15rem;
+        margin: 0.9rem 0 0.2rem 0;
+    }
+    .agri-workflow-step {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        background-color: #F1F8E9;
+        color: #1B5E20;
+        border: 1px solid #C8E6C9;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 0.2rem 0.65rem;
+        white-space: nowrap;
+    }
+    .agri-workflow-arrow { color: #81C784; font-size: 0.9rem; }
+    /* Confidence meter (result card) */
+    .agri-conf-meter {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin-top: 0.7rem;
+    }
+    .agri-conf-track {
+        flex: 1 1 auto;
+        height: 0.9rem;
+        border-radius: 999px;
+        background-color: #ECEFF1;
+        overflow: hidden;
+    }
+    .agri-conf-fill { height: 100%; border-radius: 999px; }
+    .agri-conf-high { background-color: #2E7D32; }
+    .agri-conf-medium { background-color: #F57C00; }
+    .agri-conf-low { background-color: #C62828; }
+    .agri-conf-value {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #1B5E20;
+        flex: 0 0 auto;
+    }
+    .agri-conf-note {
+        font-size: 0.8rem;
+        color: #607D8B;
+        margin: 0.3rem 0 0 0;
+    }
+    /* Grad-CAM color legend */
+    .agri-legend {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        flex-wrap: wrap;
+        margin-top: 0.55rem;
+    }
+    .agri-legend-bar {
+        width: 170px;
+        height: 0.7rem;
+        border-radius: 999px;
+        background: linear-gradient(
+            90deg, #0000FF 0%, #00FFFF 25%, #00FF00 50%, #FFFF00 75%, #FF0000 100%
+        );
+    }
+    .agri-legend-label { font-size: 0.8rem; color: #607D8B; }
+    /* Demo sample chip (clearly labeled demo example) */
+    .agri-demo-chip {
+        display: inline-block;
+        background-color: #E3F2FD;
+        color: #1565C0;
+        border: 1px solid #BBDEFB;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding: 0.18rem 0.7rem;
+        margin-bottom: 0.35rem;
+    }
+    /* Button polish (presentation only) */
+    .stButton > button { border-radius: 10px; font-weight: 600; }
     /* Mobile-friendly sizing */
     @media (max-width: 640px) {
+        .agri-hero { padding: 1.15rem 1.25rem 1.05rem 1.25rem; }
         .agri-hero h1 { font-size: 1.7rem; }
         .agri-hero h2 { font-size: 1.05rem; }
+        .agri-step-title { font-size: 1.12rem; }
+        .agri-step-subtitle { font-size: 0.85rem; }
         .agri-result-key { flex-basis: 100%; }
+        .agri-conf-track { height: 0.8rem; }
+        .agri-legend { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+        .agri-workflow-arrow { display: none; }
     }
     /* Presentation polish: hide developer chrome */
     #MainMenu { visibility: hidden; }
@@ -202,12 +296,16 @@ st.markdown(
 # ---------------------------------------------------------------------------
 
 
-def _step_header(number: int, title: str) -> None:
+def _step_header(number: int, title: str, subtitle: str | None = None) -> None:
     """Render a numbered step header used to guide the farmer's flow."""
+    _subtitle_html = (
+        f'<span class="agri-step-subtitle">{subtitle}</span>' if subtitle else ""
+    )
     st.markdown(
         f'<div class="agri-step-header">'
         f'<span class="agri-step-badge">{number}</span>'
         f'<span class="agri-step-title">{title}</span>'
+        f'{_subtitle_html}'
         f'</div>',
         unsafe_allow_html=True,
     )
@@ -275,6 +373,116 @@ def _next_step_for(predicted_class: str) -> str:
     return _NEXT_STEPS.get(predicted_class.strip().lower(), _NEXT_STEP_DEFAULT)
 
 
+# Safety workflow shown under the hero (communicates the guarded pipeline:
+# crop selection -> upload -> quality guard -> crop verification ->
+# prediction -> confidence -> Grad-CAM -> farmer assistant).
+_WORKFLOW_STEPS = (
+    ("🌱", "Select crop"),
+    ("📷", "Upload leaf"),
+    ("✅", "Quality check"),
+    ("🔎", "Crop check"),
+    ("🧠", "Diagnosis"),
+    ("🎯", "Grad-CAM"),
+    ("🤝", "Guidance"),
+)
+
+
+def _workflow_strip() -> None:
+    """Render the compact pipeline/safety workflow strip (display only)."""
+    parts: list[str] = ['<div class="agri-workflow">']
+    for _i, (_icon, _label) in enumerate(_WORKFLOW_STEPS):
+        if _i:
+            parts.append('<span class="agri-workflow-arrow">›</span>')
+        parts.append(
+            f'<span class="agri-workflow-step">{_icon} {_label}</span>'
+        )
+    parts.append("</div>")
+    st.markdown("".join(parts), unsafe_allow_html=True)
+
+
+# Demo sample images (clearly labeled demo examples for live demos; single
+# unmodified copies of existing repository images — see demo_images/README).
+_DEMO_DIR = _PROJECT_ROOT / "app" / "demo_images"
+_DEMO_SAMPLES = {
+    "Tomato": ("tomato_demo.JPG", "Tomato · Early Blight example"),
+    "Potato": ("potato_demo.JPG", "Potato · Late Blight example"),
+    "Apple": ("apple_demo.JPG", "Apple · Apple Scab example"),
+}
+
+
+# Assistant response languages (labels shown in the UI).
+_LANGUAGE_LABELS = {"en": "English", "ur": "اردو (Urdu)", "roman_ur": "Roman Urdu"}
+
+
+# Quick-pick example questions (existing supported intents only —
+# symptoms / management / prevention; no new advisory content).
+_QUICK_QUESTIONS = (
+    "What are the symptoms?",
+    "How can I manage it?",
+    "How can I prevent it?",
+)
+
+
+def _confidence_meter(confidence: float) -> None:
+    """Render a lightweight confidence meter (display only).
+
+    The underlying confidence value is unchanged; the color band mirrors
+    the existing uncertainty-gate threshold (warn below 0.75).
+    """
+    if confidence >= 0.90:
+        band = "agri-conf-high"
+    elif confidence >= 0.75:
+        band = "agri-conf-medium"
+    else:
+        band = "agri-conf-low"
+    st.markdown(
+        f'<div class="agri-conf-meter">'
+        f'<div class="agri-conf-track">'
+        f'<div class="agri-conf-fill {band}" '
+        f'style="width:{confidence * 100:.1f}%"></div>'
+        f"</div>"
+        f'<span class="agri-conf-value">{confidence:.1%}</span>'
+        f"</div>"
+        f'<p class="agri-conf-note">Model confidence — how sure the AI is, '
+        f"not a guarantee of accuracy.</p>",
+        unsafe_allow_html=True,
+    )
+
+
+def _gradcam_legend() -> None:
+    """Render the Grad-CAM color legend (display only)."""
+    st.markdown(
+        '<div class="agri-legend">'
+        '<span class="agri-legend-label">Less influence</span>'
+        '<div class="agri-legend-bar"></div>'
+        '<span class="agri-legend-label">More influence</span>'
+        "</div>",
+        unsafe_allow_html=True,
+    )
+
+
+# Known assistant section headers (imported read-only from the existing
+# assistant module) so they can be emphasized when rendered as Markdown.
+try:  # pragma: no cover — defensive: assistant internals are stable
+    from app.assistant import _SECTION_HEADERS as _ASSISTANT_SECTION_HEADERS
+except ImportError:  # noqa: BLE001
+    _ASSISTANT_SECTION_HEADERS = {}
+
+_ASSISTANT_HEADERS = {
+    _header
+    for _per_language in _ASSISTANT_SECTION_HEADERS.values()
+    for _header in _per_language.values()
+}
+
+
+def _format_assistant_response(response: str) -> str:
+    """Bold known section headers for readability (display only)."""
+    return "\n".join(
+        f"**{_line}**" if _line.strip() in _ASSISTANT_HEADERS else _line
+        for _line in response.split("\n")
+    )
+
+
 # ---------------------------------------------------------------------------
 # Cached loaders
 # ---------------------------------------------------------------------------
@@ -303,13 +511,86 @@ if not available_crops:
     st.error("No crop configurations found in configs/crops/.")
     st.stop()
 
+# ---------------------------------------------------------------------------
+# Shared UI state — crop & language selection, pending reset
+#
+# The crop (and the assistant language) can be changed from the sidebar or
+# from the main page; ``_selected_crop`` / ``_selected_language`` are the
+# single source of truth, kept in sync via widget callbacks.  Tomato is the
+# default crop (the flagship demo crop).
+# ---------------------------------------------------------------------------
+
+_DEFAULT_CROP = "Tomato" if "Tomato" in available_crops else available_crops[0]
+if "_selected_crop" not in st.session_state:
+    st.session_state["_selected_crop"] = _DEFAULT_CROP
+if st.session_state["_selected_crop"] not in available_crops:
+    st.session_state["_selected_crop"] = _DEFAULT_CROP
+if "_selected_language" not in st.session_state:
+    st.session_state["_selected_language"] = "en"
+if st.session_state["_selected_language"] not in _LANGUAGE_LABELS:
+    st.session_state["_selected_language"] = "en"
+
+
+def _on_sidebar_crop_change() -> None:
+    st.session_state["_selected_crop"] = st.session_state["sidebar_crop"]
+
+
+def _on_main_crop_change() -> None:
+    st.session_state["_selected_crop"] = st.session_state["main_crop"]
+
+
+def _on_sidebar_language_change() -> None:
+    st.session_state["_selected_language"] = st.session_state["sidebar_language"]
+
+
+def _on_main_language_change() -> None:
+    st.session_state["_selected_language"] = st.session_state["main_language"]
+
+
+# "Analyze Another Leaf" reset — applied at the top of the next run so the
+# uploader widget state can be cleared before the widget is instantiated.
+# Only analysis/session state is reset; models and configuration are not
+# touched.
+if st.session_state.pop("_pending_reset", False):
+    for _key in (
+        "result",
+        "overlay",
+        "uncertainty",
+        "assistant_answer",
+        "assistant_question",
+        "_analysis_error",
+        "_file_key",
+        "_upload_id",
+        "_demo_sample",
+    ):
+        st.session_state.pop(_key, None)
+    # A file_uploader value cannot be assigned via session_state; popping
+    # the key is the supported way to clear the widget.
+    st.session_state.pop("leaf_uploader", None)
+
 with st.sidebar:
     st.markdown("### 🌱 AgriMind AI")
     st.caption("AI-powered crop health intelligence")
-    selected_crop = st.selectbox(
-        "Select crop", available_crops, format_func=_crop_label
+
+    st.markdown("#### Crop & Language")
+    st.session_state["sidebar_crop"] = st.session_state["_selected_crop"]
+    st.selectbox(
+        "Select crop",
+        available_crops,
+        format_func=_crop_label,
+        key="sidebar_crop",
+        on_change=_on_sidebar_crop_change,
+    )
+    st.session_state["sidebar_language"] = st.session_state["_selected_language"]
+    st.selectbox(
+        "Assistant language",
+        list(_LANGUAGE_LABELS),
+        format_func=lambda code: _LANGUAGE_LABELS.get(code, code),
+        key="sidebar_language",
+        on_change=_on_sidebar_language_change,
     )
 
+    selected_crop = st.session_state["_selected_crop"]
     crop_cfg = _load_crop_config(selected_crop)
 
     st.divider()
@@ -325,9 +606,9 @@ with st.sidebar:
     st.divider()
     st.markdown("#### How It Works")
     st.markdown(
-        "1. Photograph a single leaf, filling the frame\n"
-        "2. Upload the photo and tap **Analyze Leaf**\n"
-        "3. Read the diagnosis and ask for guidance"
+        "1. Select your crop and upload a single leaf photo\n"
+        "2. Tap **Analyze Leaf** — AgriMind checks photo quality and crop\n"
+        "3. Read the diagnosis and ask for guidance in your language"
     )
 
     st.divider()
@@ -366,64 +647,120 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+# Safety workflow strip — communicates the guarded pipeline end to end.
+_workflow_strip()
+
 # ---------------------------------------------------------------------------
-# Step 1 — Upload
+# Step 1 — Crop selection (main page; stays in sync with the sidebar)
 # ---------------------------------------------------------------------------
 
-_step_header(1, "Upload a leaf photo")
+_step_header(1, "Select your crop", "Choose the crop you want to check")
+st.session_state["main_crop"] = st.session_state["_selected_crop"]
+st.radio(
+    "Select crop",
+    available_crops,
+    format_func=_crop_label,
+    horizontal=True,
+    key="main_crop",
+    on_change=_on_main_crop_change,
+    label_visibility="collapsed",
+)
+selected_crop = st.session_state["_selected_crop"]
+crop_cfg = _load_crop_config(selected_crop)
+
+# ---------------------------------------------------------------------------
+# Step 2 — Upload
+# ---------------------------------------------------------------------------
+
+_step_header(2, "Upload a leaf photo", "A clear, close-up photo gives the best results")
 
 uploaded_file = st.file_uploader(
     "Upload a clear leaf image",
     type=["jpg", "jpeg", "png", "bmp"],
     help="Supported formats: JPG, JPEG, PNG, BMP",
+    key="leaf_uploader",
 )
 st.caption("Use good lighting and keep one leaf visible.")
 
-# When the user uploads a *different* image (or switches to a different
-# crop), discard stale results so a previous crop's analysis is never
-# shown alongside the new selection.
-if uploaded_file is not None:
+# -- Demo sample (clearly labeled demo example for the live demo) ----------
+_demo_entry = _DEMO_SAMPLES.get(selected_crop)
+if _demo_entry is not None and (_DEMO_DIR / _demo_entry[0]).exists():
+    if st.button(
+        f"🌱 Try a demo image — {_demo_entry[1]}",
+        help="Loads a labeled sample image from this project (demo example).",
+    ):
+        st.session_state["_demo_sample"] = {
+            "crop": selected_crop,
+            "name": _demo_entry[0],
+            "label": _demo_entry[1],
+            "bytes": (_DEMO_DIR / _demo_entry[0]).read_bytes(),
+        }
+
+# ---------------------------------------------------------------------------
+# Active image — a new upload supersedes the demo sample; the demo sample
+# supersedes an unchanged upload.  Whenever the active image (or the crop)
+# changes, stale results are discarded so a previous analysis is never
+# shown alongside a new selection.
+# ---------------------------------------------------------------------------
+
+_demo_sample = st.session_state.get("_demo_sample")
+if _demo_sample is not None and _demo_sample.get("crop") != selected_crop:
+    # Demo sample belongs to a different crop — drop it (the crop
+    # verification gate would reject it anyway).
+    st.session_state.pop("_demo_sample", None)
+    _demo_sample = None
+
+_upload_id = (
+    (uploaded_file.name, uploaded_file.size) if uploaded_file is not None else None
+)
+if _upload_id != st.session_state.get("_upload_id"):
+    st.session_state["_upload_id"] = _upload_id
+    if _upload_id is not None:
+        # A new upload always supersedes the demo sample.
+        st.session_state.pop("_demo_sample", None)
+        _demo_sample = None
+
+if _demo_sample is not None:
+    _img_name = _demo_sample["name"]
+    _img_bytes = _demo_sample["bytes"]
+    _img_label = _demo_sample["label"]
+    _file_key = f"{selected_crop}|demo:{_img_name}"
+elif uploaded_file is not None:
+    _img_name = uploaded_file.name
+    _img_bytes = uploaded_file.getvalue()
+    _img_label = None
     _file_key = f"{selected_crop}|{uploaded_file.name}|{uploaded_file.size}"
-    if _file_key != st.session_state.get("_file_key"):
-        st.session_state["_file_key"] = _file_key
-        st.session_state.pop("result", None)
-        st.session_state.pop("overlay", None)
-        st.session_state.pop("assistant_answer", None)
-        st.session_state.pop("uncertainty", None)
-
-# ---------------------------------------------------------------------------
-# Image preview
-# ---------------------------------------------------------------------------
-
-if uploaded_file is not None:
-    with st.container(border=True):
-        _preview_col, _checklist_col = st.columns([3, 2])
-        with _preview_col:
-            st.image(
-                uploaded_file,
-                caption=uploaded_file.name,
-                width="stretch",
-            )
-        with _checklist_col:
-            st.markdown("**Photo checklist**")
-            st.markdown(
-                "- One leaf fills the frame\n"
-                "- Natural daylight\n"
-                "- Leaf in sharp focus\n"
-                "- Plain color photo"
-            )
 else:
+    _img_name = None
+    _img_bytes = None
+    _img_label = None
+    _file_key = None
+
+if _file_key is not None and _file_key != st.session_state.get("_file_key"):
+    st.session_state["_file_key"] = _file_key
+    for _key in (
+        "result",
+        "overlay",
+        "assistant_answer",
+        "uncertainty",
+        "_analysis_error",
+    ):
+        st.session_state.pop(_key, None)
+
+# ---------------------------------------------------------------------------
+# Robustness guard — quality gate (pre-inference).  Runs before the
+# preview so an unreadable or rejected photo is reported with the
+# standard guard message instead of crashing the image preview.
+# ---------------------------------------------------------------------------
+
+if _img_bytes is None:
     st.info("Upload a clear leaf image to begin analysis.")
     st.stop()
-
-# ---------------------------------------------------------------------------
-# Robustness guard — quality gate (pre-inference)
-# ---------------------------------------------------------------------------
 
 _guard_thresholds = load_guard_thresholds(crop_cfg)
 
 try:
-    _pil_image = Image.open(uploaded_file).convert("RGB")
+    _pil_image = Image.open(io.BytesIO(_img_bytes)).convert("RGB")
     _quality_metrics = compute_quality_metrics(_pil_image)
     _quality_verdict = evaluate_quality(_quality_metrics, _guard_thresholds)
 except Exception:
@@ -447,6 +784,33 @@ if _quality_verdict["status"] == "reject":
 if _quality_verdict["status"] != QUALITY_OK:
     for r in _quality_verdict["reasons"]:
         st.caption(f"Note: {REASON_MESSAGES[r]}")
+
+# ---------------------------------------------------------------------------
+# Image preview
+# ---------------------------------------------------------------------------
+
+with st.container(border=True):
+    _preview_col, _checklist_col = st.columns([3, 2])
+    with _preview_col:
+        if _img_label is not None:
+            st.markdown(
+                '<span class="agri-demo-chip">🌱 Demo example</span>',
+                unsafe_allow_html=True,
+            )
+            st.caption(_img_label)
+        st.image(
+            io.BytesIO(_img_bytes),
+            caption=_img_name,
+            width="stretch",
+        )
+    with _checklist_col:
+        st.markdown("**Photo checklist**")
+        st.markdown(
+            "- One leaf fills the frame\n"
+            "- Natural daylight\n"
+            "- Leaf in sharp focus\n"
+            "- Plain color photo"
+        )
 
 # ---------------------------------------------------------------------------
 # Crop verification — is this image the selected crop?
@@ -482,15 +846,21 @@ model = _load_model(model_path)
 # Analyze button + pipeline
 # ---------------------------------------------------------------------------
 
-if st.button("Analyze Leaf", type="primary", width="stretch"):
+def _run_analysis() -> None:
+    """Run the existing inference pipeline on the active image.
+
+    The pipeline (quality guard -> crop verification -> prediction ->
+    Grad-CAM) is unchanged; this wrapper only lets the Analyze button and
+    the retry button share one code path.
+    """
     tmp_path: str | None = None
     try:
-        # Save uploaded bytes to a temp file (inference expects a path)
-        suffix = Path(uploaded_file.name).suffix or ".jpg"
+        # Save the active image bytes to a temp file (inference expects a path)
+        suffix = Path(_img_name).suffix or ".jpg"
         with tempfile.NamedTemporaryFile(
             suffix=suffix, delete=False
         ) as tmp:
-            tmp.write(uploaded_file.getvalue())
+            tmp.write(_img_bytes)
             tmp_path = tmp.name
 
         with st.spinner("Analyzing..."):
@@ -525,15 +895,37 @@ if st.button("Analyze Leaf", type="primary", width="stretch"):
             st.session_state["uncertainty"] = evaluate_uncertainty(
                 result["probabilities"], _guard_thresholds
             )
+            st.session_state.pop("_analysis_error", None)
 
     except Exception as exc:
-        st.error(f"Analysis failed: {exc}")
+        # Keep the full error visible; never suppress real failures.
+        st.session_state["_analysis_error"] = str(exc)
     finally:
         if tmp_path and Path(tmp_path).exists():
             os.unlink(tmp_path)
 
+
+if st.button("Analyze Leaf", type="primary", width="stretch"):
+    _run_analysis()
+
+# -- Error recovery: retry the same image, or start over -----------------
+if st.session_state.get("_analysis_error"):
+    st.error(f"Analysis failed: {st.session_state['_analysis_error']}")
+    st.caption(
+        "You can retry the analysis with the same image, or start over "
+        "with a different photo."
+    )
+    _retry_col, _start_over_col = st.columns(2)
+    with _retry_col:
+        if st.button("↻ Retry analysis", width="stretch"):
+            _run_analysis()
+    with _start_over_col:
+        if st.button("Start over", width="stretch"):
+            st.session_state["_pending_reset"] = True
+            st.rerun()
+
 # ---------------------------------------------------------------------------
-# Step 2 — Diagnosis (results display)
+# Step 3 — Diagnosis (results display)
 # ---------------------------------------------------------------------------
 
 if "result" in st.session_state:
@@ -542,7 +934,7 @@ if "result" in st.session_state:
     class_descs = crop_cfg.get("class_descriptions", {})
     _uncertainty = st.session_state.get("uncertainty")
 
-    _step_header(2, "Diagnosis")
+    _step_header(3, "Diagnosis", "AI result with confidence and explanation")
 
     # -- Result card: crop, disease, confidence, status, next step --
     pred_class = result["predicted_class"]
@@ -580,7 +972,7 @@ if "result" in st.session_state:
             """,
             unsafe_allow_html=True,
         )
-        st.progress(confidence)
+        _confidence_meter(confidence)
 
         # -- Uncertainty caution banner (robustness guard) --
         if _uncertainty and _uncertainty["cautions"]:
@@ -600,7 +992,7 @@ if "result" in st.session_state:
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("**Your leaf**")
-        st.image(uploaded_file, width="stretch")
+        st.image(io.BytesIO(_img_bytes), width="stretch")
     with col2:
         st.markdown("**Where the AI looked (Grad-CAM)**")
         st.image(overlay_np, width="stretch")
@@ -610,6 +1002,7 @@ if "result" in st.session_state:
         "when making the prediction. Warmer colors (red/yellow) "
         "indicate regions that most influenced the decision."
     )
+    _gradcam_legend()
 
     # -- Class probabilities (sorted, predicted class highlighted) --
     st.markdown("#### Confidence by condition")
@@ -632,12 +1025,17 @@ if "result" in st.session_state:
         "agricultural experts."
     )
 
+    # -- Reset: analyze another leaf --------------------------------------
+    if st.button("🔄 Analyze Another Leaf", width="stretch"):
+        st.session_state["_pending_reset"] = True
+        st.rerun()
+
 # ---------------------------------------------------------------------------
-# Step 3 — Farmer Assistant
+# Step 4 — Farmer Assistant
 # ---------------------------------------------------------------------------
 
 st.divider()
-_step_header(3, "🤝 Ask AgriMind")
+_step_header(4, "🤝 Ask AgriMind", "Trilingual guidance based on your diagnosis")
 
 with st.container(border=True):
     _assistant_context = st.session_state.get("result")
@@ -655,16 +1053,40 @@ with st.container(border=True):
             "answers in your language."
         )
 
-    _LANGUAGE_OPTIONS = {"English": "en", "اردو (Urdu)": "ur", "Roman Urdu": "roman_ur"}
-    _language_label = st.radio("Response language", list(_LANGUAGE_OPTIONS), horizontal=True)
-    _language = _LANGUAGE_OPTIONS[_language_label]
+    # Language radio stays in sync with the sidebar language selector.
+    st.session_state["main_language"] = st.session_state["_selected_language"]
+    st.radio(
+        "Response language",
+        list(_LANGUAGE_LABELS),
+        format_func=lambda code: _LANGUAGE_LABELS.get(code, code),
+        horizontal=True,
+        key="main_language",
+        on_change=_on_main_language_change,
+    )
+    _language = st.session_state["_selected_language"]
+
+    # Quick-pick example questions (existing supported intents only — no
+    # new advisory content).  A clicked chip fills the question box and
+    # asks it in the same run.
+    _quick_clicked = None
+    _quick_cols = st.columns(len(_QUICK_QUESTIONS))
+    for _i, _quick_q in enumerate(_QUICK_QUESTIONS):
+        with _quick_cols[_i]:
+            if st.button(_quick_q, key=f"quick_question_{_i}", width="stretch"):
+                _quick_clicked = _quick_q
+
+    if _quick_clicked is not None:
+        # Setting the widget key before the text input is instantiated is
+        # allowed, so the clicked question appears in the box right away.
+        st.session_state["assistant_question"] = _quick_clicked
 
     _farmer_question_text = st.text_input(
         "Your question (optional)",
         placeholder="e.g. What are the symptoms? / Iska ilaj kya hai?",
+        key="assistant_question",
     )
 
-    if st.button("Ask AgriMind", width="stretch"):
+    if st.button("Ask AgriMind", width="stretch") or _quick_clicked is not None:
         _result = st.session_state.get("result")
         _assistant_question = FarmerQuestion(
             crop=selected_crop,
@@ -681,7 +1103,10 @@ with st.container(border=True):
     if "assistant_answer" in st.session_state:
         _answer = st.session_state["assistant_answer"]
         if _answer.status == "ok":
-            st.info(_answer.response)
+            # Render the existing response as Markdown so headings,
+            # bullets and emphasis stay readable.
+            with st.container(border=True):
+                st.markdown(_format_assistant_response(_answer.response))
             st.caption(
                 "This guidance is general advice, not a prescription. Always "
                 "confirm with your local agricultural extension office."
