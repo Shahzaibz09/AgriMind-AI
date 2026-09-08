@@ -1,4 +1,4 @@
-﻿torch
+torch
 torchvision
 Pillow
 numpy
@@ -7,3 +7,5 @@ matplotlib
 scikit-learn
 PyYAML
 streamlit
+fastapi
+uvicorn

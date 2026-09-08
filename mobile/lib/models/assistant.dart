@@ -25,8 +25,32 @@ class AssistantQuestion {
 /// Step 1 only produces placeholder answers ([isPlaceholder] `true`) —
 /// no agricultural advice is invented on the device.
 class AssistantAnswer {
-  const AssistantAnswer({required this.text, this.isPlaceholder = false});
+  const AssistantAnswer({
+    required this.text,
+    this.isPlaceholder = false,
+    this.status,
+    this.sections,
+  });
 
   final String text;
   final bool isPlaceholder;
+  final String? status;
+  final Map<String, dynamic>? sections;
+
+  factory AssistantAnswer.fromJson(Map<String, dynamic> json) {
+    return AssistantAnswer(
+      text: json['response'] as String? ?? 'No response received.',
+      isPlaceholder: false,
+      status: json['status'] as String?,
+      sections: json['sections'] as Map<String, dynamic>?,
+    );
+  }
+
+  factory AssistantAnswer.error(String message) {
+    return AssistantAnswer(
+      text: message,
+      isPlaceholder: false,
+      status: 'error',
+    );
+  }
 }

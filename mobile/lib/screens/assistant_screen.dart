@@ -22,7 +22,6 @@ class AssistantScreen extends StatefulWidget {
 }
 
 class _AssistantScreenState extends State<AssistantScreen> {
-  final AssistantService _service = const DemoAssistantService();
   final TextEditingController _controller = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   final List<_ConversationEntry> _entries = <_ConversationEntry>[];
@@ -45,7 +44,7 @@ class _AssistantScreenState extends State<AssistantScreen> {
     _controller.clear();
     _scrollToBottom();
 
-    final AssistantAnswer answer = await _service.ask(
+    final AssistantAnswer answer = await app.assistantService.ask(
       AssistantQuestion(
         text: question,
         language: app.language,

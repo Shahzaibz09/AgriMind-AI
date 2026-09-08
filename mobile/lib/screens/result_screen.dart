@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import '../models/analysis.dart';
@@ -10,9 +11,6 @@ import 'leaf_analysis_screen.dart';
 /// Result screen — diagnosis card structure (crop, disease, confidence,
 /// status, Grad-CAM area, recommended next step) rendered from the
 /// latest [AnalysisResult].
-///
-/// Until the backend is connected the data is a clearly marked
-/// placeholder; no disease names or confidence values are invented.
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key});
 
@@ -27,6 +25,29 @@ class ResultScreen extends StatelessWidget {
 
     final String cropLabel = result?.crop.label ?? app.selectedCrop.label;
     final String cropEmoji = result?.crop.emoji ?? app.selectedCrop.emoji;
+    final bool isPlaceholder = result?.isPlaceholder ?? true;
+
+    // Decode base64 Grad-CAM overlay if available
+    Widget? gradcamWidget;
+    if (!isPlaceholder && result?.gradcamOverlayBase64 != null) {
+      try {
+        final b64String = result!.gradcamOverlayBase64!.contains(',')
+            ? result.gradcamOverlayBase64!.split(',').last
+            : result.gradcamOverlayBase64!;
+        final bytes = base64Decode(b64String);
+        gradcamWidget = ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Image.memory(
+            bytes,
+            height: 220,
+            width: double.infinity,
+            fit: BoxFit.contain,
+          ),
+        );
+      } catch (_) {
+        gradcamWidget = null;
+      }
+    }
 
     return Scaffold(
       appBar: AppBar(title: Text(s.diagnosisTitle)),
@@ -34,9 +55,55 @@ class ResultScreen extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
           children: [
-            // -- Placeholder banner -------------------------------------
-            DemoNoticeBanner(message: s.placeholderNotice),
-            const SizedBox(height: 16),
+            // -- Placeholder banner (only when in demo mode) ------------
+            if (isPlaceholder) ...[
+              DemoNoticeBanner(message: s.placeholderNotice),
+              const SizedBox(height: 16),
+            ],
+
+            // -- Alert banner (if quality rejected or crop mismatch) ----
+            if (!isPlaceholder &&
+                result?.apiStatus != null &&
+                result!.apiStatus != 'success') ...[
+              Container(
+                padding: const EdgeInsets.all(14),
+                decoration: BoxDecoration(
+                  color: Colors.orange.shade50,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.orange.shade300),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(Icons.warning_amber_rounded,
+                        color: Colors.orange.shade800),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            result.statusLabel ?? 'Alert',
+                            style: textTheme.titleSmall?.copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: Colors.orange.shade900,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            result.errorMessage ?? '',
+                            style: textTheme.bodySmall?.copyWith(
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+            ],
 
             // -- Diagnosis card -----------------------------------------
             AgriCard(
@@ -66,23 +133,33 @@ class ResultScreen extends StatelessWidget {
                   ),
                   _ResultRow(
                     label: s.diseaseLabel,
-                    value: s.notAvailableYet,
-                    muted: true,
+                    value: isPlaceholder
+                        ? s.notAvailableYet
+                        : (result?.disease ?? s.notAvailableYet),
+                    muted: isPlaceholder,
                   ),
                   _ResultRow(
                     label: s.confidenceLabel,
-                    value: s.notAvailableYet,
-                    muted: true,
+                    value: isPlaceholder
+                        ? s.notAvailableYet
+                        : (result?.confidence != null
+                            ? '${(result!.confidence! * 100).toStringAsFixed(1)}%'
+                            : s.notAvailableYet),
+                    muted: isPlaceholder,
                   ),
                   _ResultRow(
                     label: s.statusLabel,
-                    value: s.notAvailableYet,
-                    muted: true,
+                    value: isPlaceholder
+                        ? s.notAvailableYet
+                        : (result?.statusLabel ?? s.notAvailableYet),
+                    muted: isPlaceholder,
                   ),
                   _ResultRow(
                     label: s.recommendedNextStep,
-                    value: s.notAvailableYet,
-                    muted: true,
+                    value: isPlaceholder
+                        ? s.notAvailableYet
+                        : (result?.recommendedNextStep ?? s.notAvailableYet),
+                    muted: isPlaceholder,
                     isLast: true,
                   ),
                 ],
@@ -97,30 +174,31 @@ class ResultScreen extends StatelessWidget {
                 children: [
                   SectionHeader(s.gradcamTitle),
                   const SizedBox(height: 12),
-                  Container(
-                    height: 160,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.green.shade50,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.green.shade200),
-                    ),
-                    child: Center(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.gradient,
-                              size: 34, color: Colors.green.shade300),
-                          const SizedBox(height: 6),
-                          Text(
-                            s.notAvailableYet,
-                            style: textTheme.bodySmall
-                                ?.copyWith(color: Colors.black45),
+                  gradcamWidget ??
+                      Container(
+                        height: 160,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.green.shade50,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: Colors.green.shade200),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.gradient,
+                                  size: 34, color: Colors.green.shade300),
+                              const SizedBox(height: 6),
+                              Text(
+                                s.notAvailableYet,
+                                style: textTheme.bodySmall
+                                    ?.copyWith(color: Colors.black45),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ),
                   const SizedBox(height: 10),
                   _GradcamLegend(
                     lessLabel: s.lessInfluence,
@@ -130,6 +208,46 @@ class ResultScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
+
+            // -- Uncertainty Cautions (if any) ---------------------------
+            if (!isPlaceholder &&
+                result?.cautions != null &&
+                result!.cautions.isNotEmpty) ...[
+              AgriCard(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.info_outline,
+                            size: 18, color: Colors.orange.shade700),
+                        const SizedBox(width: 8),
+                        Text(
+                          'Prediction Notes',
+                          style: textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: Colors.orange.shade900,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    for (final caution in result.cautions)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 4),
+                        child: Text(
+                          '• $caution',
+                          style: textTheme.bodySmall?.copyWith(
+                            color: Colors.black87,
+                            height: 1.4,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+            ],
 
             // -- AI disclaimer -------------------------------------------
             AgriCard(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
+import '../models/analysis.dart';
 import '../models/crop.dart';
 import '../state/app_scope.dart';
 import '../theme/app_theme.dart';
@@ -8,13 +10,50 @@ import 'analysis_progress_screen.dart';
 
 /// Leaf analysis screen for the selected crop.
 ///
-/// Step 1 provides the three entry actions as UI-level placeholders:
-/// Take Photo and Choose from Gallery explain that capture connects in
-/// the next step; Try Demo Image runs the preview analysis flow.
+/// Supports capturing photos via Camera, picking from Gallery, or
+/// running the Demo Image flow.
 class LeafAnalysisScreen extends StatelessWidget {
   const LeafAnalysisScreen({super.key});
 
   static const String routeName = '/analysis';
+
+  Future<void> _pickImage(BuildContext context, ImageSource source) async {
+    final s = AppScope.of(context).strings;
+    try {
+      final picker = ImagePicker();
+      final picked = await picker.pickImage(
+        source: source,
+        maxWidth: 1600,
+        maxHeight: 1600,
+        imageQuality: 90,
+      );
+      if (picked == null) return;
+      final bytes = await picked.readAsBytes();
+      if (!context.mounted) return;
+
+      final app = AppScope.of(context);
+      app.setActiveRequest(AnalysisRequest(
+        crop: app.selectedCrop,
+        imageBytes: bytes,
+        imageName: picked.name,
+        isDemoImage: false,
+      ));
+      Navigator.of(context).pushNamed(AnalysisProgressScreen.routeName);
+    } catch (_) {
+      // In automated widget tests or when device camera is unsupported,
+      // fallback to the explanatory guidance sheet
+      if (context.mounted) {
+        _showPlaceholderSheet(
+          context,
+          source == ImageSource.camera ? s.takePhoto : s.chooseFromGallery,
+          s.takePhotoHelp,
+          source == ImageSource.camera
+              ? Icons.photo_camera_outlined
+              : Icons.photo_library_outlined,
+        );
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,16 +97,26 @@ class LeafAnalysisScreen extends StatelessWidget {
               icon: Icons.photo_camera_outlined,
               title: s.takePhoto,
               subtitle: s.takePhotoHelp,
-              onTap: () => _showPlaceholderSheet(context, s.takePhoto,
-                  s.takePhotoHelp, Icons.photo_camera_outlined),
+              onTap: () => _showCaptureSheet(
+                context,
+                s.takePhoto,
+                s.takePhotoHelp,
+                Icons.photo_camera_outlined,
+                ImageSource.camera,
+              ),
             ),
             const SizedBox(height: 12),
             _ActionTile(
               icon: Icons.photo_library_outlined,
               title: s.chooseFromGallery,
               subtitle: s.takePhotoHelp,
-              onTap: () => _showPlaceholderSheet(context, s.chooseFromGallery,
-                  s.takePhotoHelp, Icons.photo_library_outlined),
+              onTap: () => _showCaptureSheet(
+                context,
+                s.chooseFromGallery,
+                s.takePhotoHelp,
+                Icons.photo_library_outlined,
+                ImageSource.gallery,
+              ),
             ),
             const SizedBox(height: 12),
             _ActionTile(
@@ -75,8 +124,14 @@ class LeafAnalysisScreen extends StatelessWidget {
               title: s.tryDemoImage,
               subtitle: s.analysisPreviewNote,
               emphasized: true,
-              onTap: () => Navigator.of(context)
-                  .pushNamed(AnalysisProgressScreen.routeName),
+              onTap: () {
+                app.setActiveRequest(AnalysisRequest(
+                  crop: app.selectedCrop,
+                  isDemoImage: true,
+                ));
+                Navigator.of(context)
+                    .pushNamed(AnalysisProgressScreen.routeName);
+              },
             ),
             const SizedBox(height: 16),
 
@@ -105,6 +160,63 @@ class LeafAnalysisScreen extends StatelessWidget {
       'Leaf in sharp focus · plain color photo';
   static const String _tipThree =
       'AgriMind checks quality and verifies the crop before diagnosing';
+
+  void _showCaptureSheet(
+    BuildContext context,
+    String title,
+    String message,
+    IconData icon,
+    ImageSource source,
+  ) {
+    showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (BuildContext sheetContext) {
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(24, 0, 24, 32),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(icon, size: 40, color: Colors.green.shade700),
+              const SizedBox(height: 12),
+              Text(
+                title,
+                style: Theme.of(sheetContext)
+                    .textTheme
+                    .titleLarge
+                    ?.copyWith(fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                message,
+                style: Theme.of(sheetContext)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(color: Colors.black87, height: 1.4),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton.icon(
+                  icon: Icon(source == ImageSource.camera
+                      ? Icons.photo_camera
+                      : Icons.photo_library),
+                  label: Text(source == ImageSource.camera
+                      ? 'Launch Camera'
+                      : 'Open Gallery'),
+                  onPressed: () {
+                    Navigator.of(sheetContext).pop();
+                    _pickImage(context, source);
+                  },
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   void _showPlaceholderSheet(
     BuildContext context,

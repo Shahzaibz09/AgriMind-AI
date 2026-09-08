@@ -27,7 +27,6 @@ class _AnalysisProgressScreenState extends State<AnalysisProgressScreen> {
   static const List<AnalysisStage> _stages = AnalysisStage.values;
   static const Duration _stageDelay = Duration(milliseconds: 900);
 
-  final AnalysisService _service = const DemoAnalysisService();
   AppState? _app;
   bool _started = false;
   int _completedStages = 0;
@@ -47,7 +46,16 @@ class _AnalysisProgressScreenState extends State<AnalysisProgressScreen> {
 
   Future<void> _runPreview() async {
     final app = _app!;
-    final request = AnalysisRequest(crop: app.selectedCrop, isDemoImage: true);
+    final request = app.activeRequest ??
+        AnalysisRequest(crop: app.selectedCrop, isDemoImage: true);
+
+    final AnalysisService service =
+        (request.isDemoImage && (request.imageBytes == null))
+            ? const DemoAnalysisService()
+            : app.analysisService;
+
+    // Run backend analysis concurrently with stage animations
+    final Future<AnalysisResult> analysisFuture = service.analyzeLeaf(request);
 
     for (int i = 0; i < _stages.length; i++) {
       await Future<void>.delayed(_stageDelay);
@@ -55,9 +63,7 @@ class _AnalysisProgressScreenState extends State<AnalysisProgressScreen> {
       setState(() => _completedStages = i + 1);
     }
 
-    // The service supplies the (placeholder) outcome; swapping in the
-    // real backend later requires no changes to this screen.
-    final AnalysisResult result = await _service.analyzeLeaf(request);
+    final AnalysisResult result = await analysisFuture;
     if (!mounted) return;
     app.setLastResult(result);
     setState(() => _finished = true);
