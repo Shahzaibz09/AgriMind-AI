@@ -11,7 +11,6 @@ import logging
 from pathlib import Path
 from typing import Callable
 
-import pandas as pd
 import torch
 from PIL import Image
 from torch.utils.data import Dataset
@@ -102,6 +101,8 @@ class TomatoLeafDataset(Dataset):
 
         if not self.manifest_path.exists():
             raise FileNotFoundError(f"Manifest not found: {self.manifest_path}")
+
+        import pandas as pd
 
         self.df = pd.read_csv(self.manifest_path)
         required = {"image_path", "clean_class"}
