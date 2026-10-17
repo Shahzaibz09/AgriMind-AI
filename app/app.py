@@ -33,8 +33,11 @@ from PIL import Image
 # ---------------------------------------------------------------------------
 
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
-if str(_PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(_PROJECT_ROOT))
+# Streamlit may put this script's directory first on sys.path, where ``app.py``
+# can shadow the repository's ``app`` package. Keep the project root first.
+if str(_PROJECT_ROOT) in sys.path:
+    sys.path.remove(str(_PROJECT_ROOT))
+sys.path.insert(0, str(_PROJECT_ROOT))
 
 from app.assistant import FarmerQuestion, answer_farmer_question  # noqa: E402
 from app.crop_config import get_crop_config, list_crops  # noqa: E402
