@@ -83,11 +83,14 @@ st.markdown(
     <style>
     /* Hero banner */
     .agri-hero {
-        background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 55%, #43A047 100%);
+        background: #183D2D;
         color: #FFFFFF;
-        padding: 1.5rem 2rem 1.4rem 2rem;
-        border-radius: 14px;
+        padding: 1.7rem 2rem 1.55rem 2rem;
+        border: 1px solid #315C46;
+        border-left: 5px solid #D6A84F;
+        border-radius: 18px;
         margin-bottom: 1rem;
+        box-shadow: 0 12px 32px rgba(24, 61, 45, 0.10);
     }
     .agri-hero h1 {
         font-size: 2.4rem;
@@ -273,6 +276,21 @@ st.markdown(
     }
     /* Button polish (presentation only) */
     .stButton > button { border-radius: 10px; font-weight: 600; }
+    .stButton > button:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    [role="radio"]:focus-visible,
+    [role="combobox"]:focus-visible {
+        outline: 3px solid #B36B35 !important;
+        outline-offset: 2px !important;
+    }
+    .agri-page-lead { max-width: 54rem; color: #405349; font-size: 1.08rem; }
+    .agri-eyebrow { color: #A8D1B5; font-size: .78rem; font-weight: 700;
+        letter-spacing: .13em; text-transform: uppercase; }
+    .agri-section-note { color: #586B60; max-width: 58rem; }
+    .agri-urdu-answer { direction: rtl; text-align: right; white-space: pre-wrap;
+        font-size: 1.08rem; line-height: 1.9; }
     /* Mobile-friendly sizing */
     @media (max-width: 640px) {
         .agri-hero { padding: 1.15rem 1.25rem 1.05rem 1.25rem; }
@@ -284,6 +302,14 @@ st.markdown(
         .agri-conf-track { height: 0.8rem; }
         .agri-legend { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
         .agri-workflow-arrow { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            scroll-behavior: auto !important;
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
     }
     /* Presentation polish: hide developer chrome */
     #MainMenu { visibility: hidden; }
@@ -486,6 +512,205 @@ def _format_assistant_response(response: str) -> str:
     )
 
 
+_APP_PAGES = (
+    "Overview",
+    "Leaf diagnosis",
+    "Farmer Assistant",
+    "Model & trust",
+    "About & roadmap",
+)
+
+# Cross-checked against the local evaluation artifacts. These reports are not
+# part of the tracked Cloud deployment, so the trust page keeps the verified
+# summary values self-contained rather than opening ignored report files.
+_CROP_VERIFICATION_TEST = (98.67, 300)
+_POTATO_HEALTHY_TEST_SUPPORT = 20
+_CPU_VALIDATION_SUMMARY = (717, 23)
+
+
+def _render_secondary_page(page: str, selected_crop: str, crop_cfg: dict) -> None:
+    """Render the non-diagnosis destinations without invoking inference."""
+    if page == "Overview":
+        intro, sample = st.columns([1.25, 0.75], gap="large", vertical_alignment="center")
+        with intro:
+            st.markdown(
+                '<div class="agri-hero">'
+                '<div class="agri-eyebrow">A calmer way to check a leaf</div>'
+                '<h1>Look closer.<br>Care with context.</h1>'
+                '<p>AgriMind helps you screen tomato, potato, and apple leaves, '
+                'then offers careful next steps in the language you choose.</p>'
+                '</div>',
+                unsafe_allow_html=True,
+            )
+            st.markdown(
+                '<p class="agri-page-lead">Start with one clear photo. '
+                'Photo quality and crop checks run before disease screening, '
+                'so a blocked result never appears as a diagnosis.</p>',
+                unsafe_allow_html=True,
+            )
+            if st.button("Start a leaf check", type="primary", key="overview_start"):
+                st.session_state["_pending_page"] = "Leaf diagnosis"
+                st.rerun()
+        with sample:
+            sample_path = _DEMO_DIR / _DEMO_SAMPLES["Tomato"][0]
+            if sample_path.exists():
+                st.image(
+                    str(sample_path),
+                    caption="Project sample · tomato leaf",
+                    width="stretch",
+                )
+                st.caption("Example image from this project, not a live field photo.")
+
+        st.markdown("### A careful four-step flow")
+        step_items = (
+            ("01", "Choose a crop", "Select tomato, potato, or apple."),
+            ("02", "Share one leaf", "Use a focused, well-lit close-up."),
+            ("03", "Run the checks", "Image quality and crop are checked first."),
+            ("04", "Review next steps", "See a cautious result and ask the assistant."),
+        )
+        for offset in range(0, len(step_items), 2):
+            steps = st.columns(2, gap="large")
+            for column, (number, title, description) in zip(
+                steps, step_items[offset:offset + 2]
+            ):
+                with column:
+                    st.markdown(f"**{number} · {title}**")
+                    st.markdown(f'<p class="agri-section-note">{description}</p>', unsafe_allow_html=True)
+
+        st.markdown("### Designed for a useful photo")
+        st.info(
+            "Photograph one leaf in natural light. Keep it in focus, fill most of the frame, "
+            "and avoid heavy shadows or filters. Field photos can differ from the images "
+            "used to evaluate these models."
+        )
+        st.caption(
+            "AI-assisted screening only. It is not a certified diagnosis; high-confidence "
+            "errors are possible. Consult a local agricultural expert before acting."
+        )
+        return
+
+    if page == "Farmer Assistant":
+        st.title("Farmer Assistant")
+        st.markdown(
+            '<p class="agri-page-lead">Ask for general crop-care guidance from the '
+            'project’s curated, rule-based knowledge base. No external AI service is used.</p>',
+            unsafe_allow_html=True,
+        )
+        result = st.session_state.get("result")
+        if result:
+            st.info(
+                f"Current context: {selected_crop} · {result['predicted_class']} "
+                f"({result['confidence']:.0%} model confidence)."
+            )
+        else:
+            st.caption(f"Current crop: {selected_crop}. Analyze a leaf to add result context.")
+        question = st.selectbox(
+            "Choose a question",
+            _QUICK_QUESTIONS,
+            key="assistant_page_question_pick",
+        )
+        if st.button("Get guidance", type="primary", key="assistant_page_ask"):
+            st.session_state["assistant_page_answer"] = answer_farmer_question(
+                FarmerQuestion(
+                    crop=selected_crop,
+                    predicted_disease=result.get("predicted_class") if result else None,
+                    confidence=result.get("confidence") if result else None,
+                    question=question,
+                    language=st.session_state.get("_selected_language", "en"),
+                ),
+                knowledge_dir=str(_PROJECT_ROOT / "configs" / "knowledge"),
+            )
+        answer = st.session_state.get("assistant_page_answer")
+        if answer:
+            if answer.status == "ok":
+                with st.container(border=True):
+                    if st.session_state.get("_selected_language") == "ur":
+                        import html
+
+                        st.markdown(
+                            '<div class="agri-urdu-answer" dir="rtl" lang="ur">'
+                            f"{html.escape(answer.response)}"
+                            "</div>",
+                            unsafe_allow_html=True,
+                        )
+                    else:
+                        st.markdown(_format_assistant_response(answer.response))
+                st.caption(
+                    "General guidance, not a prescription. Confirm care decisions with "
+                    "your local agricultural extension office."
+                )
+            else:
+                st.warning(answer.response)
+        return
+
+    if page == "Model & trust":
+        st.title("Model & trust")
+        st.markdown(
+            '<p class="agri-page-lead">A transparent view of what the models were '
+            'tested on, what the visual explanation means, and where the limits are.</p>',
+            unsafe_allow_html=True,
+        )
+        scores = []
+        for crop in list_crops(str(_CROPS_DIR)):
+            display = _load_crop_config(crop).get("display", {})
+            scores.append((crop, display.get("test_accuracy"), display.get("test_samples")))
+        cols = st.columns(len(scores), gap="medium")
+        for col, (crop, accuracy, samples) in zip(cols, scores):
+            with col:
+                st.metric(f"{crop} · held-out test", f"{accuracy:.2f}%", f"{samples:,} images")
+
+        crop_accuracy, crop_count = _CROP_VERIFICATION_TEST
+        st.markdown("#### Crop verification")
+        st.metric("Held-out crop check", f"{crop_accuracy:.2f}%", f"{crop_count} images")
+        st.caption(
+            "The verification gate uses a 0.85 confidence threshold. A confident crop mismatch "
+            "or an uncertain check stops the disease model from producing a diagnosis."
+        )
+
+        potato_healthy = _POTATO_HEALTHY_TEST_SUPPORT
+        st.warning(
+            f"Evaluation limits: results are held-out PlantVillage test-set figures, not field guarantees. "
+            f"The potato test set contains only {potato_healthy} healthy examples, so its aggregate "
+            "accuracy has limited support for that class. High-confidence errors can still occur."
+        )
+        st.markdown("#### What Grad-CAM shows")
+        st.write(
+            "Grad-CAM highlights image regions that influenced the model’s prediction. "
+            "It is a visual attention cue, not proof of disease and not a causal explanation."
+        )
+        st.markdown("#### Evaluation context")
+        latency_ms, validation_runs = _CPU_VALIDATION_SUMMARY
+        st.write(
+            f"The crop models are MobileNetV3-Small. Project validation recorded mean CPU "
+            f"inference including Grad-CAM of {latency_ms} ms over {validation_runs} runs. "
+            "This is a measured project result under that validation setup, not a response-time guarantee."
+        )
+        return
+
+    if page == "About & roadmap":
+        st.title("About AgriMind AI")
+        st.markdown(
+            '<p class="agri-page-lead">A crop-leaf screening project that combines '
+            'image checks, crop verification, disease classification, visual attention, '
+            'and curated multilingual guidance.</p>',
+            unsafe_allow_html=True,
+        )
+        st.markdown("### What is available today")
+        st.write(
+            "Tomato, potato, and apple screening; quality and crop checks; Grad-CAM overlays; "
+            "and a rule-based Farmer Assistant in English, Urdu, and Roman Urdu."
+        )
+        st.markdown("### Future directions")
+        st.write(
+            "Possible future work includes evaluating additional field conditions and exploring "
+            "weather or sensor context. These integrations are not currently implemented."
+        )
+        st.caption(
+            "This project supports screening and learning. Confirm diagnoses and treatment "
+            "decisions with a qualified local agricultural expert."
+        )
+
+
 # ---------------------------------------------------------------------------
 # Cached loaders
 # ---------------------------------------------------------------------------
@@ -534,12 +759,31 @@ if st.session_state["_selected_language"] not in _LANGUAGE_LABELS:
     st.session_state["_selected_language"] = "en"
 
 
+def _clear_crop_dependent_results() -> None:
+    """Drop analysis and assistant content when its crop context changes."""
+    for key in (
+        "result",
+        "overlay",
+        "uncertainty",
+        "assistant_answer",
+        "assistant_page_answer",
+        "_analysis_error",
+    ):
+        st.session_state.pop(key, None)
+
+
 def _on_sidebar_crop_change() -> None:
-    st.session_state["_selected_crop"] = st.session_state["sidebar_crop"]
+    selected = st.session_state["sidebar_crop"]
+    if selected != st.session_state.get("_selected_crop"):
+        _clear_crop_dependent_results()
+    st.session_state["_selected_crop"] = selected
 
 
 def _on_main_crop_change() -> None:
-    st.session_state["_selected_crop"] = st.session_state["main_crop"]
+    selected = st.session_state["main_crop"]
+    if selected != st.session_state.get("_selected_crop"):
+        _clear_crop_dependent_results()
+    st.session_state["_selected_crop"] = selected
 
 
 def _on_sidebar_language_change() -> None:
@@ -571,6 +815,12 @@ if st.session_state.pop("_pending_reset", False):
     # the key is the supported way to clear the widget.
     st.session_state.pop("leaf_uploader", None)
 
+# Apply navigation requested by a page action before its selectbox is created.
+if "_pending_page" in st.session_state:
+    st.session_state["active_page"] = st.session_state.pop("_pending_page")
+elif "active_page" not in st.session_state:
+    st.session_state["active_page"] = "Leaf diagnosis"
+
 with st.sidebar:
     st.markdown("### 🌱 AgriMind AI")
     st.caption("AI-powered crop health intelligence")
@@ -593,26 +843,26 @@ with st.sidebar:
         on_change=_on_sidebar_language_change,
     )
 
+    st.markdown("#### Explore")
+    _active_page = st.selectbox(
+        "Choose a section",
+        _APP_PAGES,
+        key="active_page",
+        label_visibility="collapsed",
+    )
+
     selected_crop = st.session_state["_selected_crop"]
     crop_cfg = _load_crop_config(selected_crop)
 
     st.divider()
-    st.markdown("#### Supported Conditions")
-    _class_descs = crop_cfg.get("class_descriptions", {})
-    for _cls in crop_cfg.get("class_names", []):
-        _desc = _class_descs.get(_cls)
-        if _desc:
-            st.markdown(f"- **{_cls}** — {_desc}")
-        else:
-            st.markdown(f"- {_cls}")
-
-    st.divider()
-    st.markdown("#### How It Works")
-    st.markdown(
-        "1. Select your crop and upload a single leaf photo\n"
-        "2. Tap **Analyze Leaf** — AgriMind checks photo quality and crop\n"
-        "3. Read the diagnosis and ask for guidance in your language"
-    )
+    with st.expander("Supported conditions", expanded=False):
+        _class_descs = crop_cfg.get("class_descriptions", {})
+        for _cls in crop_cfg.get("class_names", []):
+            _desc = _class_descs.get(_cls)
+            if _desc:
+                st.markdown(f"- **{_cls}** — {_desc}")
+            else:
+                st.markdown(f"- {_cls}")
 
     st.divider()
     with st.expander("Technical Details"):
@@ -632,6 +882,15 @@ with st.sidebar:
         st.caption(
             "Automatic image quality checks are active for every upload."
         )
+
+if _active_page != "Leaf diagnosis":
+    _render_secondary_page(_active_page, selected_crop, crop_cfg)
+    st.divider()
+    st.caption(
+        "AI-assisted screening only · Field conditions may differ from the evaluation data. "
+        "Confirm care decisions with a local agricultural expert."
+    )
+    st.stop()
 
 # ---------------------------------------------------------------------------
 # Hero banner

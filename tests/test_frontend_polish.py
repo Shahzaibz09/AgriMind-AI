@@ -81,6 +81,13 @@ def _app() -> AppTest:
     return at
 
 
+def _navigate(at: AppTest, page: str) -> None:
+    """Choose a sidebar destination and run the app again."""
+    at.sidebar.selectbox[2].set_value(page)
+    at.run()
+    assert not at.exception
+
+
 def _button(at: AppTest, label: str):
     for b in at.button:
         if b.label == label:
@@ -176,6 +183,45 @@ class TestCropSelection:
             assert not at.exception
             assert at.radio[0].value == crop
             assert at.session_state["_selected_crop"] == crop
+
+    def test_changing_crop_clears_result_and_assistant_answer(self):
+        at = _app()
+        at.session_state["result"] = {"predicted_class": "Early Blight", "confidence": 0.9}
+        at.session_state["overlay"] = object()
+        at.session_state["assistant_page_answer"] = object()
+        at.sidebar.selectbox[0].set_value("Potato")
+        at.run()
+        assert not at.exception
+        assert "result" not in at.session_state
+        assert "overlay" not in at.session_state
+        assert "assistant_page_answer" not in at.session_state
+
+
+class TestInformationArchitecture:
+    def test_overview_has_a_clear_start_action(self):
+        at = _app()
+        _navigate(at, "Overview")
+        rendered = "\n".join(item.value for item in at.markdown)
+        assert "Look closer." in rendered
+        assert "Start a leaf check" in {button.label for button in at.button}
+        _click(at, "Start a leaf check")
+        assert at.session_state["active_page"] == "Leaf diagnosis"
+        assert at.radio[0].value == "Tomato"
+
+    def test_model_trust_page_shows_verified_test_context_and_caveat(self):
+        at = _app()
+        _navigate(at, "Model & trust")
+        rendered = "\n".join(item.value for item in at.markdown)
+        warning = "\n".join(item.value for item in at.warning)
+        assert "held-out PlantVillage test-set figures" in warning
+        assert "20 healthy examples" in warning
+        assert "717 ms" in rendered
+
+    def test_farmer_assistant_is_a_destination_without_a_diagnosis(self):
+        at = _app()
+        _navigate(at, "Farmer Assistant")
+        assert "Farmer Assistant" in {title.value for title in at.title}
+        assert "result" not in at.session_state
 
 
 # ---------------------------------------------------------------------------
